@@ -1,5 +1,13 @@
 package com.company.Model;
 
-public class Silver {
+public class Silver extends Avion{
 
+
+    public Silver(int capacidadCombustible, int costoKM, int capacidadPasajeros, int velMax , Propulsion propulsion  ,Boolean wifi) {
+        this.setCapacidadCombustible(capacidadCombustible);
+        this.setCostoKM(costoKM);
+        this.setCapacidadPasajeros(capacidadPasajeros);
+        this.setVelMax(velMax);
+        this.setPropulsion(propulsion);
+    }
 }
