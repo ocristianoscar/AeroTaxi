@@ -6,6 +6,7 @@ public abstract class Avion {
     private int capacidadPasajeros;
     private int velMax;
     Propulsion propulsion;
+    private boolean vueloProgramado;
 
     public int getCapacidadCombustible() { return capacidadCombustible; }
 
@@ -27,4 +28,7 @@ public abstract class Avion {
 
     public void setPropulsion(Propulsion propulsion) { this.propulsion = propulsion; }
 
+    public boolean isVueloProgramado() { return vueloProgramado; }
+
+    public void setVueloProgramado(boolean vueloProgramado) { this.vueloProgramado = vueloProgramado; }
 }
