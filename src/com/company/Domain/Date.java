@@ -22,9 +22,7 @@ public class Date {
         return start.plusDays(6);
     }
 
-    public Date next() {
-        return new Date(start.plusDays(1));
-    }
+    public Date next() { return new Date(start.plusDays(1)); }
 
     public Date previous() {
         return new Date(start.minusDays(1));

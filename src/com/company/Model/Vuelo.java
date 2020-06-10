@@ -8,10 +8,12 @@ import java.util.stream.Collectors;
 
 public class Vuelo {
     private LocalDateTime dateTime;
+    private Usuario usuario;
     private List<Acompañante> acompañantes;
     private Avion avion;
 
-    public Vuelo(LocalDateTime dateTime, List<Acompañante> acompañantes, Avion avion) {
+    public Vuelo(LocalDateTime dateTime, Usuario usuario, List<Acompañante> acompañantes, Avion avion) {
+        this.usuario = usuario;
         this.dateTime = dateTime;
         this.acompañantes = acompañantes;
         this.avion = avion;
@@ -21,7 +23,7 @@ public class Vuelo {
         return dateTime.toLocalTime();
     }
 
-    public String getUsuarioNombre() { return acompañantes.get(0).getUsuario().getNombre(); }
+    public String getUsuarioNombre() { return usuario.getNombre(); }
 
     public List<String> getAcompañantesNombres() {
         return acompañantes.stream()
