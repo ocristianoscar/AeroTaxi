@@ -1,7 +1,5 @@
 package com.company.Model;
 
-import javax.rmi.ssl.SslRMIClientSocketFactory;
-
 public class Usuario {
     private String nombre;
     private String apellido;
