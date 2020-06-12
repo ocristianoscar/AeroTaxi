@@ -1,5 +1,6 @@
 package com.company.Controller;
 
+import com.company.MVC.Controller;
 import com.company.Model.Vuelo;
 
 import java.time.LocalDate;
@@ -7,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class VueloController {
+public class VueloController implements Controller {
     private List<Vuelo> vuelos = new ArrayList<>();
 
     public void add(Vuelo vuelo) {
