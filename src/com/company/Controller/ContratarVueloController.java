@@ -14,6 +14,10 @@ public class ContratarVueloController implements Controller {
 
     private ContratarVuelo contratarVuelo;
 
+    public void add(Vuelo vuelo) {
+        this.vuelos.add(vuelo);
+    }
+
     public ContratarVueloController(ContratarVuelo contratarVuelo) {
         this.contratarVuelo = contratarVuelo;
     }
@@ -38,15 +42,5 @@ public class ContratarVueloController implements Controller {
             default: break;
         }
         return false;
-    }
-
-    public void add(Vuelo vuelo) {
-        this.vuelos.add(vuelo);
-    }
-
-    public List<Vuelo> on(LocalDate date) {
-        return vuelos.stream()
-                .filter(vuelo -> vuelo.isOn(date))
-                .collect(Collectors.toList());
     }
 }

@@ -14,7 +14,7 @@ public class CancelarVueloView implements View {
     private CancelarVuelo cancelarVuelo;
     private CancelarVueloController cancelarVueloController;
 
-    private static String titulo= "CANCELAR VUELO"
+    private static String titulo= "CANCELAR VUELO";
     //private static String op1= "Administración de Aviones"
     //private static String op2= "Salidas del Sistema ";
 
@@ -33,7 +33,7 @@ public class CancelarVueloView implements View {
 
         System.out.print(titulo + "\n\n");
         //aca debería mostrar con el execute ya sea si tiene vuelos para cancelar, como no
-        cancelarVueloController.execute();
+        //TODO cancelarVueloController.execute();
 
         //private String choice = sc.nextLine();
     }

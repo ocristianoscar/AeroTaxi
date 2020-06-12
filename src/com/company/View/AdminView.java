@@ -12,8 +12,8 @@ public class AdminView implements View {
     private Admin admin;
     private AdminController adminController;
 
-    private static String titulo= "MENU DE ADMINISTRADOR"
-    private static String op1= "Administración de Aviones"
+    private static String titulo= "MENU DE ADMINISTRADOR";
+    private static String op1= "Administración de Aviones";
     private static String op2= "Salidas del Sistema ";
 
     public AdminView(Admin admin, AdminController adminController) {
@@ -30,7 +30,7 @@ public class AdminView implements View {
         Scanner sc = new Scanner(System.in);
 
         System.out.print(titulo + "\n\n1 - " + op1 + "\n2 - " + op2);
-        private String choice = sc.nextLine();
+        String choice = sc.nextLine();
 
 
         adminController.execute(choice);
