@@ -13,7 +13,7 @@ public class ContratarVueloView implements View {
     private ContratarVueloController contratarVueloController;
 
     private static String titulo= "CONTRATAR VUELO";
-    private static String op1= "Elegir fecha: "
+    private static String op1= "Elegir fecha: ";
     //private static String op2= "Salidas del Sistema ";
 
     public ContratarVueloView(ContratarVuelo contratarVuelo, ContratarVueloController contratarVueloController) {

@@ -8,8 +8,8 @@ import java.util.Scanner;
 
 public class LoginView implements View {
 
-    private static String titulo= "MENU DE ACCESO DE USUARIO"
-    private static String op1= "usuario: "
+    private static String titulo= "MENU DE ACCESO DE USUARIO";
+    private static String op1= "usuario: ";
     private static String op2= "contraseña: ";
 
     private Login login;
@@ -26,12 +26,14 @@ public class LoginView implements View {
         Scanner sc = new Scanner(System.in);
 
         System.out.print(titulo + "\n\n" + op1);
-        private String user = sc.nextLine();
-        System.out.print(op2);
-        private String pass = sc.nextLine();
+        String user = sc.nextLine();
+        if(loginViewController.execute(user)){      //debe ser un try
 
+            System.out.print(op2);
+            String pass = sc.nextLine();
+            loginViewController.execute(pass);
+        }
 
-        loginViewController.execute(user, pass);
     }
 
     public void modelChanged(){ show(); }

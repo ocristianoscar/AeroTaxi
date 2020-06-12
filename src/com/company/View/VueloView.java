@@ -1,4 +1,10 @@
 package com.company.View;
 
-public class VueloView {
+import com.company.MVC.View;
+
+public class VueloView implements View {
+    @Override
+    public void modelChanged() {
+        
+    }
 }

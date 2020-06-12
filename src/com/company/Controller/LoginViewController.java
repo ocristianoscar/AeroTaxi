@@ -11,9 +11,15 @@ public class LoginViewController implements Controller {
         this.login = login;
     }
 
+    /*@Override
     public boolean execute(String user, String pass ) {
         //si se loguea retorna true
         //si no se loguea retorna false
         return true;
+    }*/
+
+    @Override
+    public boolean execute(String command) {
+        return false;
     }
 }

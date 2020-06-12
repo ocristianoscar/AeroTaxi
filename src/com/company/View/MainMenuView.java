@@ -13,9 +13,9 @@ public class MainMenuView implements View {
     private MainMenu mainMenu;
     private MainMenuController mainMenuController;
 
-    private static String titulo= "MENU PRINCIPAL"
-    private static String op1= "1 - Acceso de Usuarios"
-    private static String op2= "2 - Registro de Nuevo Usuario"
+    private static String titulo= "MENU PRINCIPAL";
+    private static String op1= "1 - Acceso de Usuarios";
+    private static String op2= "2 - Registro de Nuevo Usuario";
 
     public MainMenuView(MainMenu mainMenu, AdminController adminController) {
         this.mainMenu = mainMenu;
@@ -29,7 +29,7 @@ public class MainMenuView implements View {
 
     public void show() {
         System.out.print(titulo + "\n\n" + op1 + "\n" + op2 + "\n\nelija una opción: ");
-        private String command = " "; //entrada de datos
+        String command = " "; //entrada de datos
         mainMenuController.execute(command);
     }
 }
