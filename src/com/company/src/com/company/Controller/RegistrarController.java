@@ -1,26 +1,19 @@
 package com.company.Controller;
 
-import com.company.App.MainMenu;
+import com.company.App.CancelarVuelo;
 import com.company.App.Registrar;
-<<<<<<< HEAD
 
-public class MainMenuController {
-=======
-import com.company.MVC.Controller;
+public class RegistrarController {
 
-public class MainMenuController implements Controller {
->>>>>>> Cristian
+    private Registrar registrar;
 
-    private MainMenu mainMenu;
-
-    public MainMenuController(MainMenu mainMenu) {
-        this.mainMenu = mainMenu;
+    public RegistrarController(Registrar registrar) {
+        this.registrar = registrar;
     }
 
     public boolean execute(String command) {
         switch (command){
             case "1":
-<<<<<<< HEAD
                 //TODO:
                 return true;
             case "2":
@@ -34,12 +27,6 @@ public class MainMenuController implements Controller {
                 return true;
             case "5":
                 //TODO:
-=======
-                //acceso de usuarios
-                return true;
-            case "2":
-                //registro de usuarios
->>>>>>> Cristian
                 return true;
             default: break;
         }

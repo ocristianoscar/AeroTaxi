@@ -2,8 +2,14 @@ package com.company.Controller;
 
 import com.company.App.Admin;
 import com.company.App.CancelarVuelo;
+<<<<<<< HEAD
 
 public class AdminController {
+=======
+import com.company.MVC.Controller;
+
+public class AdminController implements Controller {
+>>>>>>> Cristian
 
     private Admin admin;
 

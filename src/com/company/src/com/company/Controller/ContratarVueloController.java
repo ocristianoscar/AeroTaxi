@@ -1,10 +1,6 @@
 package com.company.Controller;
 
 import com.company.App.ContratarVuelo;
-<<<<<<< HEAD
-=======
-import com.company.MVC.Controller;
->>>>>>> Cristian
 import com.company.Model.Vuelo;
 
 import java.time.LocalDate;
@@ -12,22 +8,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-<<<<<<< HEAD
 public class ContratarVueloController {
-=======
-public class ContratarVueloController implements Controller {
->>>>>>> Cristian
     private List<Vuelo> vuelos = new ArrayList<>();
 
     private ContratarVuelo contratarVuelo;
 
-<<<<<<< HEAD
-=======
-    public void add(Vuelo vuelo) {
-        this.vuelos.add(vuelo);
-    }
-
->>>>>>> Cristian
     public ContratarVueloController(ContratarVuelo contratarVuelo) {
         this.contratarVuelo = contratarVuelo;
     }
@@ -53,7 +38,6 @@ public class ContratarVueloController implements Controller {
         }
         return false;
     }
-<<<<<<< HEAD
 
     public void add(Vuelo vuelo) {
         this.vuelos.add(vuelo);
@@ -64,6 +48,4 @@ public class ContratarVueloController implements Controller {
                 .filter(vuelo -> vuelo.isOn(date))
                 .collect(Collectors.toList());
     }
-=======
->>>>>>> Cristian
 }
