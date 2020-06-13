@@ -7,6 +7,7 @@ import com.company.Controller.ContratarVueloController;
 import com.company.MVC.View;
 
 import java.time.DayOfWeek;
+import java.util.Scanner;
 
 public class ContratarVueloView implements View {
     private ContratarVuelo contratarVuelo;
@@ -14,7 +15,7 @@ public class ContratarVueloView implements View {
 
     private static String titulo= "CONTRATAR VUELO";
     private static String op1= "Elegir fecha: ";
-    //private static String op2= "Salidas del Sistema ";
+    //private static String op2= "";
 
     public ContratarVueloView(ContratarVuelo contratarVuelo, ContratarVueloController contratarVueloController) {
         this.contratarVuelo = contratarVuelo;
@@ -27,6 +28,10 @@ public class ContratarVueloView implements View {
     }
 
     public void show() {
+        Scanner sc = new Scanner(System.in);
 
+        System.out.print(titulo + "\n\n" + op1);
+        String command = sc.next();
+        contratarVueloController.execute(command);
     }
 }
