@@ -31,7 +31,15 @@ public class ContratarVueloView implements View {
         Scanner sc = new Scanner(System.in);
 
         System.out.print(titulo + "\n\n" + op1);
-        String command = sc.next();
-        contratarVueloController.execute(command);
+        String fecha = sc.next();
+        contratarVueloController.execute(fecha);        //acá hay que hacerlo con try, de la misma forma
+                                                        //que se hizo en login
+        //en este punto debe seguirse una serie de pasos:
+        //1 - elegir fecha
+        //2 - si hay vuelos disponibles, se debe elegir origen
+        //3 - elegir destino
+        //4 - elegir aviones disponibles
+        //5 - elegir si se viaja con acompañantes o no
+        //6 - finalmente, mostrar y confirmar vuelo
     }
 }

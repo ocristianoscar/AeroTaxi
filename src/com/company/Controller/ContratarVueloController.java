@@ -22,6 +22,14 @@ public class ContratarVueloController implements Controller {
         this.contratarVuelo = contratarVuelo;
     }
 
+    //en este punto debe seguirse una serie de pasos:
+    //1 - elegir fecha
+    //2 - si hay vuelos disponibles, se debe elegir origen
+    //3 - elegir destino
+    //4 - elegir aviones disponibles
+    //5 - elegir si se viaja con acompañantes o no
+    //6 - finalmente, mostrar y confirmar vuelo
+
     public boolean execute(String command) {
         switch (command){
             case "1":
