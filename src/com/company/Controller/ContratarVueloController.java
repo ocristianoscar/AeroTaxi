@@ -1,6 +1,7 @@
 package com.company.Controller;
 
 import com.company.App.ContratarVuelo;
+import com.company.MVC.Controller;
 import com.company.Model.Vuelo;
 
 import java.time.LocalDate;
@@ -8,14 +9,26 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class ContratarVueloController {
+public class ContratarVueloController implements Controller {
     private List<Vuelo> vuelos = new ArrayList<>();
 
     private ContratarVuelo contratarVuelo;
 
+    public void add(Vuelo vuelo) {
+        this.vuelos.add(vuelo);
+    }
+
     public ContratarVueloController(ContratarVuelo contratarVuelo) {
         this.contratarVuelo = contratarVuelo;
     }
+
+    //en este punto debe seguirse una serie de pasos:
+    //1 - elegir fecha
+    //2 - si hay vuelos disponibles, se debe elegir origen
+    //3 - elegir destino
+    //4 - elegir aviones disponibles
+    //5 - elegir si se viaja con acompañantes o no
+    //6 - finalmente, mostrar y confirmar vuelo
 
     public boolean execute(String command) {
         switch (command){
@@ -37,15 +50,5 @@ public class ContratarVueloController {
             default: break;
         }
         return false;
-    }
-
-    public void add(Vuelo vuelo) {
-        this.vuelos.add(vuelo);
-    }
-
-    public List<Vuelo> on(LocalDate date) {
-        return vuelos.stream()
-                .filter(vuelo -> vuelo.isOn(date))
-                .collect(Collectors.toList());
     }
 }

@@ -8,6 +8,7 @@ public class Usuario {
     private String user;
     private String password;
     private static Usuario miUsuario; //MI USUARIO ACTUAL
+    private boolean esAdmin;
 
     //GET USUARIO SINGLETON
     public  static Usuario getUsuario(String user, String password) {

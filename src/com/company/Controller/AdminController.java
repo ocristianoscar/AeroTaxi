@@ -2,8 +2,9 @@ package com.company.Controller;
 
 import com.company.App.Admin;
 import com.company.App.CancelarVuelo;
+import com.company.MVC.Controller;
 
-public class AdminController {
+public class AdminController implements Controller {
 
     private Admin admin;
 
@@ -14,19 +15,10 @@ public class AdminController {
     public boolean execute(String command) {
         switch (command){
             case "1":
-                //TODO:
+                //TODO administracion de aviones
                 return true;
             case "2":
-                //TODO:
-                return true;
-            case "3":
-                //TODO:
-                return true;
-            case "4":
-                //TODO:
-                return true;
-            case "5":
-                //TODO:
+                //TODO salidas del sistema
                 return true;
             default: break;
         }

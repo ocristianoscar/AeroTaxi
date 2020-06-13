@@ -2,8 +2,9 @@ package com.company.Controller;
 
 import com.company.App.MainMenu;
 import com.company.App.Registrar;
+import com.company.MVC.Controller;
 
-public class MainMenuController {
+public class MainMenuController implements Controller {
 
     private MainMenu mainMenu;
 
@@ -14,19 +15,10 @@ public class MainMenuController {
     public boolean execute(String command) {
         switch (command){
             case "1":
-                //TODO:
+                //acceso de usuarios
                 return true;
             case "2":
-                //TODO:
-                return true;
-            case "3":
-                //TODO:
-                return true;
-            case "4":
-                //TODO:
-                return true;
-            case "5":
-                //TODO:
+                //registro de usuarios
                 return true;
             default: break;
         }
