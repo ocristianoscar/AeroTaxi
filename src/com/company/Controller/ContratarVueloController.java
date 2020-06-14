@@ -1,33 +1,19 @@
 package com.company.Controller;
 
 import com.company.App.ContratarVuelo;
-<<<<<<< HEAD
-=======
 import com.company.MVC.Controller;
->>>>>>> Cristian
-import com.company.Model.Vuelo;
+import com.company.Model.*;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-<<<<<<< HEAD
-public class ContratarVueloController {
-=======
 public class ContratarVueloController implements Controller {
->>>>>>> Cristian
     private List<Vuelo> vuelos = new ArrayList<>();
 
     private ContratarVuelo contratarVuelo;
 
-<<<<<<< HEAD
-=======
-    public void add(Vuelo vuelo) {
-        this.vuelos.add(vuelo);
-    }
-
->>>>>>> Cristian
     public ContratarVueloController(ContratarVuelo contratarVuelo) {
         this.contratarVuelo = contratarVuelo;
     }
@@ -61,10 +47,37 @@ public class ContratarVueloController implements Controller {
         }
         return false;
     }
-<<<<<<< HEAD
-
     public void add(Vuelo vuelo) {
         this.vuelos.add(vuelo);
+    }
+
+    public double calcularCosto(Vuelo vuelo){
+        //(Cantidad de kms * Costo del km) + (cantidad de pasajeros * 3500) + (Tarifa del tipo de avión)
+        double costo_final = 1;
+        double costo_km = 1;// costo por km del avion elegido
+        double cant_km = 1;// km de distancia entre las ciudades
+        double cant_pas = 1;// numero de viajeros
+        double tarifa = 1;
+
+    if((vuelo.getCiudadOrigen() == Ciudad.Bs_As) && (vuelo.getCiudadDestino() == Ciudad.Cordoba)// || (vuelo.getCiudadOrigen() == "Cordoba") && (vuelo.getCiudadDestino() == "Bs_As")
+        cant_km = 650; //Luego hago lo mismo con los otros 6 vuelos.
+
+
+
+        // cant_pas = vuelo.calcularPasajeros();
+
+        tarifa = vuelo.getAvion().getTarifa();
+
+        costo_km = vuelo.getAvion().getCostoKM();
+
+        System.out.println("Costo por km: " + costo_km);
+        System.out.println("Cantidad de km: " + cant_km);
+        System.out.println("Cantidad de pasajeros: " + cant_pas);
+        System.out.println("Tarifa: " + tarifa);
+
+        costo_final = (cant_km * costo_km) + (cant_pas * 3500) + tarifa;
+
+        return costo_final;
     }
 
     public List<Vuelo> on(LocalDate date) {
@@ -72,6 +85,4 @@ public class ContratarVueloController implements Controller {
                 .filter(vuelo -> vuelo.isOn(date))
                 .collect(Collectors.toList());
     }
-=======
->>>>>>> Cristian
 }

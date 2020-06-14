@@ -1,17 +1,8 @@
 package com.company.Controller;
 
 import com.company.App.CancelarVuelo;
-import com.company.App.ContratarVuelo;
-<<<<<<< HEAD
-
-public class CancelarVueloController {
-
-    private CancelarVuelo cancelarVuelo;
-
-=======
 import com.company.MVC.Controller;
 import com.company.Model.Vuelo;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,14 +13,9 @@ public class CancelarVueloController implements Controller {
     private CancelarVuelo cancelarVuelo;
 
     private List<Vuelo> vuelos = new ArrayList<>();
-
->>>>>>> Cristian
     public CancelarVueloController(CancelarVuelo cancelarVuelo) {
         this.cancelarVuelo = cancelarVuelo;
     }
-
-<<<<<<< HEAD
-=======
     public List<Vuelo> on(LocalDate date) {
         return vuelos.stream()
                 .filter(vuelo -> vuelo.isOn(date))
