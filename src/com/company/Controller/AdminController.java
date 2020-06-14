@@ -20,19 +20,10 @@ public class AdminController implements Controller {
     public boolean execute(String command) {
         switch (command){
             case "1":
-                //TODO:
+                //TODO administracion de aviones
                 return true;
             case "2":
-                //TODO:
-                return true;
-            case "3":
-                //TODO:
-                return true;
-            case "4":
-                //TODO:
-                return true;
-            case "5":
-                //TODO:
+                //TODO salidas del sistema
                 return true;
             default: break;
         }

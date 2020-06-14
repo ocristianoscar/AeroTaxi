@@ -41,7 +41,6 @@ public class AdminView implements View {
         System.out.print(titulo + "\n\n1 - " + op1 + "\n2 - " + op2);
         String choice = sc.nextLine();
 
-
         adminController.execute(choice);
 >>>>>>> Cristian
     }
