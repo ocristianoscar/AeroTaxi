@@ -59,7 +59,7 @@ public class ContratarVueloController implements Controller {
         double cant_pas = 1;// numero de viajeros
         double tarifa = 1;
 
-    if((vuelo.getCiudadOrigen() == Ciudad.Bs_As) && (vuelo.getCiudadDestino() == Ciudad.Cordoba)// || (vuelo.getCiudadOrigen() == "Cordoba") && (vuelo.getCiudadDestino() == "Bs_As")
+    if((vuelo.getCiudadOrigen() == Ciudad.Bs_As) && (vuelo.getCiudadDestino() == Ciudad.Cordoba))// || (vuelo.getCiudadOrigen() == "Cordoba") && (vuelo.getCiudadDestino() == "Bs_As")
         cant_km = 650; //Luego hago lo mismo con los otros 6 vuelos.
 
 
