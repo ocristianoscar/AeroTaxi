@@ -6,7 +6,7 @@ public abstract class Avion {
     private int costoKM;
     private int capacidadPasajeros;
     private int velMax;
-    private int tarifa;
+    private static int tarifa;
     Propulsion propulsion;
     private boolean vueloProgramado;
 
