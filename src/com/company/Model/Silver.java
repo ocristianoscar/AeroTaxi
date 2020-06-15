@@ -11,4 +11,5 @@ public class Silver extends Avion{
         this.setPropulsion(propulsion);
         this.setVueloProgramado(vueloProgramado);
     }
+
 }

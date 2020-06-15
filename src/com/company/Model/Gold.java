@@ -13,4 +13,5 @@ public class Gold extends Avion {
         this.setVueloProgramado(vueloProgramado);
         this.wifi = wifi;
     }
+
 }

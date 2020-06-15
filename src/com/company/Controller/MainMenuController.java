@@ -15,10 +15,11 @@ public class MainMenuController implements Controller {
     public boolean execute(String command) {
         switch (command){
             case "1":
-                //acceso de usuarios
+                //registro de usuarios
+                //TODO:
                 return true;
             case "2":
-                //registro de usuarios
+                //acceso de usuarios
                 return true;
             default: break;
         }
