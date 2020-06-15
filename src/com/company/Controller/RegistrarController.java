@@ -24,12 +24,13 @@ public class RegistrarController implements Controller {
     public boolean execute(String command) {
         switch (command){
             case "1":
-                this.nombre = usuarioAcrear.get(0);
-                this.apellido = usuarioAcrear.get(1);
-                this.DNI = usuarioAcrear.get(2);
-                this.edad = usuarioAcrear.get(3);
-                this.user = usuarioAcrear.get(4);
-                this.password = usuarioAcrear.get(5);
+                this.nombre = registrar.getUserAregistrar().get(0).toString();
+                this.apellido = registrar.getUserAregistrar().get(1).toString();
+                this.DNI = registrar.getUserAregistrar().get(2).toString();
+                this.edad = registrar.getUserAregistrar().get(3).toString();
+                this.user = registrar.getUserAregistrar().get(4).toString();
+                this.password = registrar.getUserAregistrar().get(5).toString();
+
                 //AGREGAR AL JSON EL USUARIO REGISTRADO Y LEER EN MainMenuView
                 return true;
             case "2":

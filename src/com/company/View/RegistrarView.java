@@ -1,6 +1,7 @@
 package com.company.View;
 
 import com.company.App.Admin;
+import com.company.App.MainMenu;
 import com.company.App.Registrar;
 import com.company.Controller.AdminController;
 import com.company.Controller.RegistrarController;
@@ -107,10 +108,15 @@ public class RegistrarView implements View {
     public void edadHelper(){
         System.out.print(op4);
         String edad = sc.nextLine();
-        if (edad.length() > 2){
-            registrar.agregarDato(edad);
+
+        if (isInteger(edad)){
+            if (Integer.parseInt(edad) < 100)
+                registrar.agregarDato(edad);
+            else
+                System.out.println("Edad mayor a 100 años.\n");
+                edadHelper();
         }else {
-            System.out.println("Nombre muy corto, mas de 2 caracteres.\n");
+            System.out.println("El valor ingresado no es un numero entero, intente nuevamente.\n");
             edadHelper();
         }
     }
@@ -138,8 +144,25 @@ public class RegistrarView implements View {
     public void registroCompletado(){
         if (registrarController.execute("1"))
             System.out.println("\nRegistro completado, lo regresaremos al menu principal\n");
+
         else
             System.out.println("\nAh ocurrido un error en el registro, lo devolveremos al menu principal.\n");
     }
 
+
+    public static boolean isInteger(String s) {
+        return isInteger(s,10);
+    }
+
+    public static boolean isInteger(String s, int radix) {
+        if(s.isEmpty()) return false;
+        for(int i = 0; i < s.length(); i++) {
+            if(i == 0 && s.charAt(i) == '-') {
+                if(s.length() == 1) return false;
+                else continue;
+            }
+            if(Character.digit(s.charAt(i),radix) < 0) return false;
+        }
+        return true;
+    }
 }
