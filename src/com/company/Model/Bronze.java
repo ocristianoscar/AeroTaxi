@@ -7,7 +7,6 @@ public class Bronze extends Avion{
         this.setCostoKM(costoKM);
         this.setCapacidadPasajeros(capacidadPasajeros);
         this.setVelMax(velMax);
-        this.setTarifa(3000);
         this.setPropulsion(propulsion);
         this.setVueloProgramado(vueloProgramado);
     }

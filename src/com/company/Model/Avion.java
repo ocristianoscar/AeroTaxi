@@ -6,7 +6,6 @@ public abstract class Avion {
     private int costoKM;
     private int capacidadPasajeros;
     private int velMax;
-    private static int tarifa;
     Propulsion propulsion;
     private boolean vueloProgramado;
 
@@ -24,13 +23,6 @@ public abstract class Avion {
 
     public int getVelMax() { return velMax; }
 
-    public int getTarifa() {
-        return tarifa;
-    }
-
-    public void setTarifa(int tarifa) {
-        this.tarifa = tarifa;
-    }
 
     public void setVelMax(int velMax) { this.velMax = velMax; }
 

@@ -59,14 +59,9 @@ public class ContratarVueloController implements Controller {
         double cant_pas = 1;// numero de viajeros
         double tarifa = 1;
 
-    if((vuelo.getCiudadOrigen() == Ciudad.Bs_As) && (vuelo.getCiudadDestino() == Ciudad.Cordoba))// || (vuelo.getCiudadOrigen() == "Cordoba") && (vuelo.getCiudadDestino() == "Bs_As")
-        cant_km = 650; //Luego hago lo mismo con los otros 6 vuelos.
-
-
-
         // cant_pas = vuelo.calcularPasajeros();
 
-        tarifa = vuelo.getAvion().getTarifa();
+        tarifa = descubrirTarifa(vuelo);
 
         costo_km = vuelo.getAvion().getCostoKM();
 
@@ -78,6 +73,41 @@ public class ContratarVueloController implements Controller {
         costo_final = (cant_km * costo_km) + (cant_pas * 3500) + tarifa;
 
         return costo_final;
+    }
+
+    public double descubrirTarifa(Vuelo vuelo){
+        double tarifa=2;
+
+        if(vuelo.getAvion() instanceof Bronze){
+            tarifa = 3000;
+        }
+        else if(vuelo.getAvion() instanceof Silver){
+            tarifa = 4000;
+        }
+        else if(vuelo.getAvion() instanceof Gold){
+            tarifa = 6000;
+        }
+
+        return tarifa;
+    }
+
+    public double descubrirCiudadOrigenYDestino(Vuelo vuelo){
+        double cant_km=2;
+
+        if(((vuelo.getCiudadOrigen() == Ciudad.Bs_As) && (vuelo.getCiudadDestino() == Ciudad.Cordoba)) || ((vuelo.getCiudadOrigen() == Ciudad.Cordoba) && (vuelo.getCiudadDestino() == Ciudad.Bs_As)))
+            cant_km = 695;
+        else if(((vuelo.getCiudadOrigen() == Ciudad.Bs_As) && (vuelo.getCiudadDestino() == Ciudad.Santiago)) || ((vuelo.getCiudadOrigen() == Ciudad.Santiago) && (vuelo.getCiudadDestino() == Ciudad.Bs_As)))
+            cant_km = 1400;
+        else if(((vuelo.getCiudadOrigen() == Ciudad.Bs_As) && (vuelo.getCiudadDestino() == Ciudad.Montevideo)) || ((vuelo.getCiudadOrigen() == Ciudad.Montevideo) && (vuelo.getCiudadDestino() == Ciudad.Bs_As)))
+            cant_km = 950;
+        else if(((vuelo.getCiudadOrigen() == Ciudad.Montevideo) && (vuelo.getCiudadDestino() == Ciudad.Cordoba)) || ((vuelo.getCiudadOrigen() == Ciudad.Cordoba) && (vuelo.getCiudadDestino() == Ciudad.Montevideo)))
+            cant_km = 1190;
+        else if(((vuelo.getCiudadOrigen() == Ciudad.Santiago) && (vuelo.getCiudadDestino() == Ciudad.Cordoba)) || ((vuelo.getCiudadOrigen() == Ciudad.Cordoba) && (vuelo.getCiudadDestino() == Ciudad.Santiago)))
+            cant_km = 1050;
+        else if(((vuelo.getCiudadOrigen() == Ciudad.Montevideo) && (vuelo.getCiudadDestino() == Ciudad.Santiago)) || ((vuelo.getCiudadOrigen() == Ciudad.Santiago) && (vuelo.getCiudadDestino() == Ciudad.Montevideo)))
+            cant_km = 2100;
+
+        return cant_km;
     }
 
     public List<Vuelo> on(LocalDate date) {
