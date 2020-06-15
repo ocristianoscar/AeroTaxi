@@ -5,13 +5,16 @@ import com.company.MVC.Controller;
 import com.company.Model.*;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class ContratarVueloController implements Controller {
     private List<Vuelo> vuelos = new ArrayList<>();
-
+    private static final int ciudades[][] = {{0,0,650},{0,1,1400},{0,2,950},{1,0,1190},{1,1,1050},{3,0,2100}};
+    private int origen;
+    private int destino;
     private ContratarVuelo contratarVuelo;
 
     public ContratarVueloController(ContratarVuelo contratarVuelo) {
@@ -27,6 +30,7 @@ public class ContratarVueloController implements Controller {
     //6 - finalmente, mostrar y confirmar vuelo
 
     public boolean execute(String command) {
+        LocalDate fechaElegida= LocalDate.parse(command, DateTimeFormatter.ofPattern("d/mm/yyyy"));
         switch (command){
             case "1":
                 //TODO:

@@ -1,22 +1,25 @@
 package com.company.Domain;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 public class Fecha {
 
-    private final java.time.LocalDate inicio;
+    private final LocalDate inicio;
 
-    private Fecha(java.time.LocalDate inicio) {
+    private Fecha(LocalDate inicio) {
         this.inicio = inicio;
     }
 
-    public static Fecha desde(java.time.LocalDate start) {
+    public static Fecha desde(LocalDate start) {
         return new Fecha(start);
     }
 
-    public java.time.LocalDate getInicio() {
+    public LocalDate getInicio() {
         return inicio;
     }
 
-    public java.time.LocalDate getEnd() {
+    public LocalDate getEnd() {
         return inicio.plusDays(6);
     }
 
