@@ -1,6 +1,7 @@
 package com.company.Model;
 
 public abstract class Avion {
+
     private int capacidadCombustible;
     private int costoKM;
     private int capacidadPasajeros;
@@ -21,6 +22,7 @@ public abstract class Avion {
     public void setCapacidadPasajeros(int capacidadPasajeros) { this.capacidadPasajeros = capacidadPasajeros; }
 
     public int getVelMax() { return velMax; }
+
 
     public void setVelMax(int velMax) { this.velMax = velMax; }
 

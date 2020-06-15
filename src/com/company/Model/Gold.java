@@ -1,7 +1,8 @@
 package com.company.Model;
 
 public class Gold extends Avion {
-    private Boolean wifi;
+    private boolean wifi;
+    private String silver;
 
     public Gold(int capacidadCombustible, int costoKM, int capacidadPasajeros, int velMax, Propulsion propulsion, boolean wifi, boolean vueloProgramado) {
         this.setCapacidadCombustible(capacidadCombustible);
@@ -12,4 +13,5 @@ public class Gold extends Avion {
         this.setVueloProgramado(vueloProgramado);
         this.wifi = wifi;
     }
+
 }

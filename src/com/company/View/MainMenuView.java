@@ -8,12 +8,16 @@ import com.company.MVC.View;
 
 import java.time.DayOfWeek;
 
-public class MenuView implements View {
+public class MainMenuView implements View {
 
     private MainMenu mainMenu;
     private MainMenuController mainMenuController;
 
-    public MenuView(MainMenu mainMenu, AdminController adminController) {
+    private static String titulo= "MENU PRINCIPAL";
+    private static String op1= "1 - Acceso de Usuarios";
+    private static String op2= "2 - Registro de Nuevo Usuario";
+
+    public MainMenuView(MainMenu mainMenu, AdminController adminController) {
         this.mainMenu = mainMenu;
         this.mainMenuController = mainMenuController;
         mainMenu.addView(this);
@@ -24,6 +28,8 @@ public class MenuView implements View {
     }
 
     public void show() {
-
+        System.out.print(titulo + "\n\n" + op1 + "\n" + op2 + "\n\nelija una opción: ");
+        String command = " "; //entrada de datos
+        mainMenuController.execute(command);
     }
 }

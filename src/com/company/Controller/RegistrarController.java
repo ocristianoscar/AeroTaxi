@@ -2,8 +2,9 @@ package com.company.Controller;
 
 import com.company.App.CancelarVuelo;
 import com.company.App.Registrar;
+import com.company.MVC.Controller;
 
-public class RegistrarController {
+public class RegistrarController implements Controller {
 
     private Registrar registrar;
 

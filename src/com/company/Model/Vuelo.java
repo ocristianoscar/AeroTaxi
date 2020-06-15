@@ -11,12 +11,16 @@ public class Vuelo {
     private Usuario usuario;
     private List<Acompañante> acompañantes;
     private Avion avion;
+    private Ciudad ciudadOrigen;
+    private Ciudad ciudadDestino;
 
-    public Vuelo(LocalDateTime dateTime, Usuario usuario, List<Acompañante> acompañantes, Avion avion) {
+    public Vuelo(LocalDateTime dateTime, Usuario usuario, List<Acompañante> acompañantes, Avion avion, Ciudad ciudadOrigen, Ciudad ciudadDestino) {
         this.usuario = usuario;
         this.dateTime = dateTime;
         this.acompañantes = acompañantes;
         this.avion = avion;
+        this.ciudadOrigen = ciudadOrigen;
+        this.ciudadDestino = ciudadDestino;
     }
 
     public LocalTime getHora() {
@@ -30,6 +34,18 @@ public class Vuelo {
                 .map(Acompañante::getNombre)
                 .collect(Collectors.toList());
 
+    }
+
+    public Ciudad getCiudadOrigen() {
+        return ciudadOrigen;
+    }
+
+    public Ciudad getCiudadDestino() {
+        return ciudadDestino;
+    }
+
+    public Avion getAvion() {
+        return avion;
     }
 
     public boolean isOn(LocalDate date) {
