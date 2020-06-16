@@ -29,12 +29,9 @@ public class Vuelo {
 
     public String getUsuarioNombre() { return usuario.getNombre(); }
 
-    /*public List<String> getAcompañantesNombres() {
-        return acompañantes.stream()
-                .map(Acompañante::getNombre)
-                .collect(Collectors.toList());
-
-    }*/
+    public int getAcompañantesNombres() {
+        return acompañantes;
+    }
 
     public Ciudad getCiudadOrigen() {
         return ciudadOrigen;
