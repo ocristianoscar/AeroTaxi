@@ -12,11 +12,9 @@ import java.util.Scanner;
 public class ContratarVueloView implements View {
     private ContratarVuelo contratarVuelo;
     private ContratarVueloController contratarVueloController;
-
     private static String titulo= "CONTRATAR VUELO";
     private static String op1= "Elegir fecha: ";
     //private static String op2= "";
-
     public ContratarVueloView(ContratarVuelo contratarVuelo, ContratarVueloController contratarVueloController) {
         this.contratarVuelo = contratarVuelo;
         this.contratarVueloController = contratarVueloController;

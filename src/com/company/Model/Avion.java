@@ -23,6 +23,7 @@ public abstract class Avion {
 
     public int getVelMax() { return velMax; }
 
+
     public void setVelMax(int velMax) { this.velMax = velMax; }
 
     public Propulsion getPropulsion() { return propulsion; }
