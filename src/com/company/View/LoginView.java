@@ -3,6 +3,7 @@ package com.company.View;
 import com.company.App.Login;
 import com.company.Controller.LoginViewController;
 import com.company.MVC.View;
+import com.company.Model.Usuario;
 
 import java.util.Scanner;
 
@@ -21,20 +22,44 @@ public class LoginView implements View {
         login.addView(this);
     }
 
+    public void modelChanged(){ show(); }
+
     public void show(){
-
-        Scanner sc = new Scanner(System.in);
-
-        System.out.print(titulo + "\n\n" + op1);
-        String user = sc.nextLine();
-        if(loginViewController.execute(user)){      //debe ser un try
+        String hasUser = show(login.getUser());
+        if(hasUser != null){
 
             System.out.print(op2);
+            Scanner sc = new Scanner(System.in);
             String pass = sc.nextLine();
             loginViewController.execute(pass);
-        }
+            try{
+                loginViewController.execute(pass);
 
+            }catch (Exception e){
+                System.out.println(e.fillInStackTrace());
+            }
+        }else {
+            if (login.getPass().isEmpty()){
+                System.out.print(titulo + "\n\n" + op1);
+                Scanner sc = new Scanner(System.in);
+                String user = sc.nextLine();
+                try {
+                    loginViewController.execute(user);
+
+                } catch (Exception e) {
+                    System.out.println(e.fillInStackTrace());
+                }
+            }else {
+                Usuario.getUsuario(login.getUser(), login.getPass());
+
+                System.out.println("\nInicio de sesion completado\n");
+
+            }
+        }
     }
 
-    public void modelChanged(){ show(); }
+    public String show(String user){
+        System.out.printf("Usuario: %s", user);
+        return user;
+    }
 }

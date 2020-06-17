@@ -13,8 +13,15 @@ public class LoginViewController implements Controller {
 
     @Override
     public boolean execute(String command) {
-        //si se loguea retorna true
-        //si no se loguea retorna false
+        if (login.getUser().isEmpty()){
+            String user = command;
+            login.setUser(user);
+
+        }else {
+            String pass = command;
+            login.setPass(pass);
+
+        }
         return true;
     }
 }
