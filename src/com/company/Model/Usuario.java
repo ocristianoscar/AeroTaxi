@@ -40,8 +40,6 @@ public class Usuario {
 
     //GETTERS
 
-    public String getUser() { return user; }
-
     public boolean isEsAdmin() { return esAdmin; }
 
     public String getNombre() { return nombre; }
@@ -52,20 +50,8 @@ public class Usuario {
 
     public String getEdad() { return edad; }
 
-
     public String getUser() {
         return user;
     }
 
-    public void setUser(String user) {
-        this.user = user;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 }

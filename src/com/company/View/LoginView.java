@@ -17,8 +17,6 @@ public class LoginView implements View {
 
     private Login login;
     private LoginViewController loginViewController;
-    private AdminController adminController;    /*TODO:esta la cree para poder usar su método para traer
-    usuarios, en realidad esto debería ser un método de la capa de persistencia*/
 
     public LoginView(LoginViewController loginViewController, Login login) {
         this.loginViewController = loginViewController;
