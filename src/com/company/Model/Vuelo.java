@@ -13,6 +13,7 @@ public class Vuelo {
     private Avion avion;
     private Ciudad ciudadOrigen;
     private Ciudad ciudadDestino;
+    //private float costo;
 
     public Vuelo(LocalDateTime dateTime, Usuario usuario, int acompañantes, Avion avion, Ciudad ciudadOrigen, Ciudad ciudadDestino) {
         this.usuario = usuario;
@@ -21,6 +22,7 @@ public class Vuelo {
         this.avion = avion;
         this.ciudadOrigen = ciudadOrigen;
         this.ciudadDestino = ciudadDestino;
+        //this.costo = calcularCosto();
     }
 
     public LocalTime getHora() {

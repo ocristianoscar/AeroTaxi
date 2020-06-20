@@ -20,7 +20,7 @@ public class Usuario {
             }
             return miUsuario;
         }catch (Exception e){
-            throw new RuntimeException("Un error ah ocurrido creando la instancia");
+            throw new RuntimeException("Un error ha ocurrido creando la instancia");
         }
     }
 
@@ -34,6 +34,9 @@ public class Usuario {
         this.password = password;
     }
 
+    //constructor publico
+    public Usuario(){}
+
     //GETTERS
     public String getNombre() { return nombre; }
 
@@ -44,6 +47,19 @@ public class Usuario {
     public String getEdad() { return edad; }
 
 
+    public String getUser() {
+        return user;
+    }
 
+    public void setUser(String user) {
+        this.user = user;
+    }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }

@@ -11,9 +11,11 @@ public class AdminView implements View {
 
     private Admin admin;
     private AdminController adminController;
-    private static String titulo= "MENU DE ADMINISTRADOR";
-    private static String op1= "Administración de Aviones";
-    private static String op2= "Salidas del Sistema ";
+
+    private static String titulo= "MENU DE ADMINISTRADOR - salidas del sistema";
+    private static String op1= "Lista de todos los vuelos programados para una fecha dada ";
+    private static String op2= "Lista de todos los clientes";
+
     public AdminView(Admin admin, AdminController adminController) {
         this.admin = admin;
         this.adminController = adminController;
