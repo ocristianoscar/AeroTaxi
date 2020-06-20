@@ -5,7 +5,9 @@ import com.company.Controller.LoginViewController;
 import com.company.MVC.View;
 import com.company.Model.Usuario;
 
+import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class LoginView implements View {
 
@@ -15,6 +17,8 @@ public class LoginView implements View {
 
     private Login login;
     private LoginViewController loginViewController;
+    private AdminController adminController;    /*TODO:esta la cree para poder usar su método para traer
+    usuarios, en realidad esto debería ser un método de la capa de persistencia*/
 
     public LoginView(LoginViewController loginViewController, Login login) {
         this.loginViewController = loginViewController;

@@ -33,7 +33,7 @@ public class RegistrarController implements Controller {
 
                 //AGREGAR AL JSON EL USUARIO REGISTRADO Y LEER EN MainMenuView
                 return true;
-            case "2":
+            case "2":       //no hay case 2
                 //TODO:
                 return true;
             default: break;

@@ -9,18 +9,20 @@ import java.util.stream.Collectors;
 public class Vuelo {
     private LocalDateTime dateTime;
     private Usuario usuario;
-    private List<Acompañante> acompañantes;
+    private int acompañantes;
     private Avion avion;
     private Ciudad ciudadOrigen;
     private Ciudad ciudadDestino;
+    //private float costo;
 
-    public Vuelo(LocalDateTime dateTime, Usuario usuario, List<Acompañante> acompañantes, Avion avion, Ciudad ciudadOrigen, Ciudad ciudadDestino) {
+    public Vuelo(LocalDateTime dateTime, Usuario usuario, int acompañantes, Avion avion, Ciudad ciudadOrigen, Ciudad ciudadDestino) {
         this.usuario = usuario;
         this.dateTime = dateTime;
         this.acompañantes = acompañantes;
         this.avion = avion;
         this.ciudadOrigen = ciudadOrigen;
         this.ciudadDestino = ciudadDestino;
+        //this.costo = calcularCosto();
     }
 
     public LocalTime getHora() {
@@ -29,12 +31,12 @@ public class Vuelo {
 
     public String getUsuarioNombre() { return usuario.getNombre(); }
 
-    public List<String> getAcompañantesNombres() {
+    /*public List<String> getAcompañantesNombres() {
         return acompañantes.stream()
                 .map(Acompañante::getNombre)
                 .collect(Collectors.toList());
 
-    }
+    }*/
 
     public Ciudad getCiudadOrigen() {
         return ciudadOrigen;

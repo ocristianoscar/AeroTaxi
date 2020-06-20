@@ -41,6 +41,14 @@ public class RegistrarView implements View {
         registro(reg);
     }
 
+    private int show(ArrayList<String> usuarioAregistrar) {
+        for (String dato: usuarioAregistrar) {
+            System.out.printf(" %s", dato);
+        }
+        return usuarioAregistrar.size();
+    }
+
+
     private void registro(int reg) {
         switch (reg){
             case 0:
@@ -67,14 +75,6 @@ public class RegistrarView implements View {
         }
     }
 
-    private int show(ArrayList<String> usuarioAregistrar) {
-        for (String dato: usuarioAregistrar
-             ) {
-            System.out.printf(" %s", dato);
-        }
-        return usuarioAregistrar.size();
-    }
-
     public void nombreHelper(){
         System.out.print(op1);
         String nombre = sc.nextLine();
@@ -91,7 +91,7 @@ public class RegistrarView implements View {
         if (apellido.length() > 2){
             registrar.agregarDato(apellido);
         }else {
-            System.out.println("Nombre muy corto, mas de 2 caracteres.\n");
+            System.out.println("Apellido muy corto, mas de 2 caracteres.\n");
             apellidoHelper();
         }
     }
@@ -101,7 +101,7 @@ public class RegistrarView implements View {
         if (DNI.length() > 2){
             registrar.agregarDato(DNI);
         }else {
-            System.out.println("Nombre muy corto, mas de 2 caracteres.\n");
+            System.out.println("DNI no valido.\n"); //en realidad habría que validar el DNI
             DNIHelper();
         }
     }
@@ -126,7 +126,7 @@ public class RegistrarView implements View {
         if (user.length() > 2){
             registrar.agregarDato(user);
         }else {
-            System.out.println("Nombre muy corto, mas de 2 caracteres.\n");
+            System.out.println("Nombre de usuario muy corto, mas de 2 caracteres.\n");
             userHelper();
         }
     }
@@ -136,7 +136,7 @@ public class RegistrarView implements View {
         if (pass.length() > 2){
             registrar.agregarDato(pass);
         }else {
-            System.out.println("Nombre muy corto, mas de 2 caracteres.\n");
+            System.out.println("pass muy corto, mas de 2 caracteres.\n");
             passHelper();
         }
     }
@@ -146,7 +146,7 @@ public class RegistrarView implements View {
             System.out.println("\nRegistro completado, lo regresaremos al menu principal\n");
 
         else
-            System.out.println("\nAh ocurrido un error en el registro, lo devolveremos al menu principal.\n");
+            System.out.println("\nHa ocurrido un error en el registro, lo devolveremos al menu principal.\n");
     }
 
 

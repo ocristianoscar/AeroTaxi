@@ -1,13 +1,9 @@
 package com.company.View;
 
-import com.company.App.Admin;
 import com.company.App.MainMenu;
-import com.company.Controller.AdminController;
 import com.company.Controller.MainMenuController;
-import com.company.Domain.Fecha;
 import com.company.MVC.View;
 
-import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.Scanner;
 
@@ -24,7 +20,7 @@ public class MainMenuView implements View {
     public MainMenuView(MainMenu mainMenu, MainMenuController mainMenuController) {
         this.mainMenu = mainMenu;
         this.mainMenuController = mainMenuController;
-        this.fecha = mainMenu.getFechaActual().getInicio();
+        this.fecha = mainMenu.getFechaActual().getFecha();
         mainMenu.addView(this);
     }
 
