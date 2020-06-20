@@ -18,14 +18,15 @@ public class LoginViewController implements Controller {
     //si es usuario lo manda al menu de usuario
     //si es admin lo manda al menu de admin
     @Override
-    public boolean execute(String controller) {
-        switch(controller) {
-            case "success":
-                login.changed();    //TODO: esto está bien?
-                adminView.show();   //toma como default que es admin para probar vista de admin
-                break;
-            default:
-                break;
+    public boolean execute(String command) {
+        if (login.getUser().isEmpty()){
+            String user = command;
+            login.setUser(user);
+
+        }else {
+            String pass = command;
+            login.setPass(pass);
+
         }
         return true;
     }
