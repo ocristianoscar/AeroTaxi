@@ -7,7 +7,8 @@ public class Admin extends Model {
 
     private Usuario usuario;
 
-    public Admin(Usuario usuario){
+    public Admin(Usuario usuario){      //aca recibiría el usuario singleton que es administrador
         this.usuario = usuario;
+        changed();
     }
 }
