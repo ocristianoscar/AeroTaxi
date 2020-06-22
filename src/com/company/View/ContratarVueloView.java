@@ -5,6 +5,8 @@ import com.company.App.ContratarVuelo;
 import com.company.Controller.AdminController;
 import com.company.Controller.ContratarVueloController;
 import com.company.MVC.View;
+import com.company.Domain.CapaDatos;
+import com.company.Model.Avion;
 
 import java.time.DayOfWeek;
 import java.util.Scanner;
@@ -17,6 +19,7 @@ public class ContratarVueloView implements View {
     private static String op2= "Elegir Ciudad Origen: 1.BS_As 2.Cordoba 3.Montevideo 4.Santiago ";
     private static String op3= "Elegir Ciudad Destino: 1.BS_As 2.Cordoba 3.Montevideo 4.Santiago ";
     private static String op4= "Cuantos acompañantes píensa llevar: ";
+    private static String op5= "Elegir Avion Disponible: ";
     public ContratarVueloView(ContratarVuelo contratarVuelo, ContratarVueloController contratarVueloController) {
         this.contratarVuelo = contratarVuelo;
         this.contratarVueloController = contratarVueloController;
@@ -36,31 +39,30 @@ public class ContratarVueloView implements View {
 
         System.out.println("\n\n" + op2);
         String origen = sc.next();
-        try{
-            contratarVueloController.execute(origen);
-            System.out.println("Se ha ingresado la ciudad de origen.");
-        }catch (Exception e){
-            System.out.println(e.fillInStackTrace());
-        }
+        ingresarOrigen(origen);
 
         System.out.println("\n\n" + op3);
         String destino = sc.next();
-        try{
-            contratarVueloController.execute(destino);
-            System.out.println("Se ha ingresado la ciudad de destino.");
-        }catch (Exception e){
-            System.out.println(e.fillInStackTrace());
-        }
+        ingresarDestino(destino);
 
         System.out.println("\n\n" + op4);
         String acompañante = sc.nextLine();
+        ingresarAcompañantes(acompañante);
 
-        try{
-            contratarVueloController.execute(origen);
-            System.out.println("Se han ingresado la cantidad de acompañantes.");
-        }catch (Exception e){
-            System.out.println(e.fillInStackTrace());
+        //Preguntar si hay aviones disponibles, luego los que tienen mas capacidad de pasajeros que acompañantes. Luego mostrar los aviones disponibles.
+        //
+
+        System.out.println("\n\n" + op5);
+        for (Avion avion : CapaDatos.getAvionList()) {
+            // if(avion.getCapacidadPasajeros() >= acompañante){ //acompañante es un String
+            // if(!avion.estaDisponible()){
+            System.out.println(avion.toString());
+
+            //}
+            //}
         }
+
+
 
         //en este punto debe seguirse una serie de pasos:
         //1 - elegir fecha
@@ -81,6 +83,37 @@ public class ContratarVueloView implements View {
             ingresarFecha(fecha);
         }
     }
+
+    public void ingresarOrigen(String origen){
+        try{
+            contratarVueloController.execute(origen);
+            System.out.println("Se ha ingresado la ciudad de origen.");
+        }catch (Exception e){
+            System.out.println(e.fillInStackTrace());
+        }
+    }
+
+
+    public void ingresarDestino(String destino){
+        try{
+            contratarVueloController.execute(destino);
+            System.out.println("Se ha ingresado la ciudad de destino.");
+        }catch (Exception e){
+            System.out.println(e.fillInStackTrace());
+        }
+    }
+
+    public void ingresarAcompañantes(String acompañante){
+        try{
+            contratarVueloController.execute(acompañante);
+            System.out.println("Se han ingresado la cantidad de acompañantes.");
+        }catch (Exception e){
+            System.out.println(e.fillInStackTrace());
+        }
+
+
+    }
+
 
   /*  public void show(arreglo de ciudades){
 

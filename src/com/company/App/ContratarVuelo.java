@@ -15,7 +15,8 @@ public class ContratarVuelo extends Model{
     String ciudadOrigen;
     String ciudadDestino;
     String acompañantes;
-    List<Avion> listaAvion;
+    String avionDisponible;
+    String[] arrCiudad = new String[4];
     // hacer arreglo de ciudades
 
     public ContratarVuelo() {
@@ -23,7 +24,7 @@ public class ContratarVuelo extends Model{
         this.ciudadOrigen=null;
         this.ciudadDestino=null;
         this.acompañantes=null;
-        this.listaAvion=null;
+        this.avionDisponible=null;
     }
     public void setFechaElegida(LocalDate fechaElegida) {
         this.fechaElegida = fechaElegida;
@@ -45,13 +46,13 @@ public class ContratarVuelo extends Model{
         changed();
     }
 
-    public void setListaAvion(List<Avion> listaAvion) {
-        this.listaAvion = listaAvion;
+    public void setAvionDisponible(String avionDisponible) {
+        this.avionDisponible = avionDisponible;
         changed();
     }
 
-    public List<Avion> getListaAvion() {
-        return listaAvion;
+    public String getAvionDisponible() {
+        return avionDisponible;
     }
 
 

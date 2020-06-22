@@ -114,4 +114,15 @@ public class CapaDatos {
 
     public static void setAvionList(List<Avion> avionList) { CapaDatos.avionList = avionList; }
 
+    public static List<Usuario> getUsersList() {
+        return usersList;
+    }
+
+    public static List<Vuelo> getVuelosList() {
+        return vuelosList;
+    }
+
+    public static List<Avion> getAvionList() {
+        return avionList;
+    }
 }

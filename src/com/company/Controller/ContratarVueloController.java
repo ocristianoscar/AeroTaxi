@@ -3,6 +3,7 @@ package com.company.Controller;
 import com.company.App.ContratarVuelo;
 import com.company.MVC.Controller;
 import com.company.Model.*;
+import com.company.Domain.CapaDatos;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -77,8 +78,8 @@ public class ContratarVueloController implements Controller {
             return true;
         }
 
-        else if(contratarVuelo.getListaAvion()==null){
-            
+        else if(contratarVuelo.getAvionDisponible()==null){
+
         }
 
 
@@ -105,8 +106,6 @@ public class ContratarVueloController implements Controller {
         return fecha;   //solo debe llegar aca cuando la fecha ingresada sea la correcta
 
     }*/
-
-
 
     public void add(Vuelo vuelo) {
         this.vuelos.add(vuelo);

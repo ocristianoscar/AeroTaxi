@@ -22,10 +22,14 @@ public abstract class Avion {
 
     public int getVelMax() { return velMax; }
 
-
     public void setVelMax(int velMax) { this.velMax = velMax; }
 
     public Propulsion getPropulsion() { return propulsion; }
 
     public void setPropulsion(Propulsion propulsion) { this.propulsion = propulsion; }
+
+    @Override
+    public String toString() {
+        return "Este avion tiene una capacidad de " + capacidadPasajeros + ", una velocidad maxima de " + velMax + "km por hora y una cantidad de " + capacidadCombustible + " combustible. Su categoria es: ";
+    }
 }
