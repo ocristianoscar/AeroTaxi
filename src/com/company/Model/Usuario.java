@@ -1,5 +1,6 @@
 package com.company.Model;
 
+import java.io.Serializable;
 import com.company.App.MainMenu;
 import com.company.Controller.MainMenuController;
 import com.company.Domain.CapaDatos;
@@ -11,7 +12,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Usuario {
+public class Usuario implements Serializable {
     private String nombre;
     private String apellido;
     private String DNI;

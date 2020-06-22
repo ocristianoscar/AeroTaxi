@@ -1,10 +1,14 @@
 package com.company.Model;
 
-public class Gold extends Avion {
+import java.io.Serializable;
+
+public class Gold extends Avion implements Serializable {
     private boolean wifi;
     private String silver;
 
-    public Gold(int capacidadCombustible, int costoKM, int capacidadPasajeros, int velMax, Propulsion propulsion, boolean wifi, boolean vueloProgramado) {
+    public Gold(){}
+
+    public Gold(int capacidadCombustible, int costoKM, int capacidadPasajeros, int velMax, Propulsion propulsion, boolean wifi) {
         this.setCapacidadCombustible(capacidadCombustible);
         this.setCostoKM(costoKM);
         this.setCapacidadPasajeros(capacidadPasajeros);
@@ -13,4 +17,12 @@ public class Gold extends Avion {
         this.wifi = wifi;
     }
 
+    @Override
+    public String toString() {
+        return "Gold{" +
+                "wifi=" + wifi +
+                ", silver='" + silver + '\'' +
+                ", propulsion=" + propulsion +
+                '}';
+    }
 }
