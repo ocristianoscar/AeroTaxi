@@ -2,15 +2,19 @@ package com.company.App;
 
 import com.company.Controller.MainMenuController;
 import com.company.Domain.CapaDatos;
-import com.company.Model.*;
 import com.company.Domain.Fecha;
+import com.company.Model.*;
 import com.company.View.MainMenuView;
 import java.util.ArrayList;
 import java.util.List;
 import java.io.File;
 
+import java.io.File;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class Main {
     //constantes de rutas de archivos
@@ -20,8 +24,17 @@ public class Main {
     public static final String PATH_AVIONES_SILVER = "avionesSilver.json";
     public static final String PATH_USUARIOS = "usuarios.json";
 
+    //constantes de rutas de archivos
+    public static final String PATH_VUELOS = "vuelos.json";
+    public static final String PATH_AVIONES_GOLD = "avionesGold.json";
+    public static final String PATH_AVIONES_BRONZE = "avionesBronze.json";
+    public static final String PATH_AVIONES_SILVER = "avionesSilver.json";
+    public static final String PATH_USUARIOS = "usuarios.json";
+
     public static void main(String[] args) {
+
         Fecha fechaActual = Fecha.desde(LocalDate.now());
+
         Bronze bronce1 = new Bronze(9500,175,19,1050,Propulsion.REACCION);//Dassault Falcon 2000LX
         Bronze bronce2 = new Bronze(9500,175,19,1050,Propulsion.REACCION);
         Bronze bronce3 = new Bronze(9500,175,19,1050,Propulsion.REACCION);
@@ -31,6 +44,7 @@ public class Main {
         CapaDatos.agregarAvionBronze(bronce2);
         CapaDatos.agregarAvionBronze(bronce3);
         CapaDatos.agregarAvionBronze(bronce4);
+
 
         Silver silver1 = new Silver(20000,250,10,1110,Propulsion.HELICE);//Gulfstream 650ER
         Silver silver2 = new Silver(20000,250,10,1110,Propulsion.HELICE);
@@ -51,6 +65,8 @@ public class Main {
         CapaDatos.agregarAvionGold(gold2);
         CapaDatos.agregarAvionGold(gold3);
         CapaDatos.agregarAvionGold(gold4);
+
+
 
         //funcion para checkear/crear archivos
         setup();

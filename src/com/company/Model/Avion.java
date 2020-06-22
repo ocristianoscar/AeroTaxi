@@ -1,7 +1,9 @@
 package com.company.Model;
 import java.io.Serializable;
 
-public abstract class Avion {
+import java.io.Serializable;
+
+public abstract class Avion implements Serializable {
 
     private int capacidadCombustible;
     private int costoKM;

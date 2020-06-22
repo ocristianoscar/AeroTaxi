@@ -1,7 +1,11 @@
 package com.company.Model;
 import java.io.Serializable;
 
-public class Silver extends Avion{
+import java.io.Serializable;
+
+public class Silver extends Avion implements Serializable {
+
+    public Silver(){}
 
     public Silver(int capacidadCombustible, int costoKM, int capacidadPasajeros, int velMax, Propulsion propulsion) {
         this.setCapacidadCombustible(capacidadCombustible);
@@ -9,6 +13,7 @@ public class Silver extends Avion{
         this.setCapacidadPasajeros(capacidadPasajeros);
         this.setVelMax(velMax);
         this.setPropulsion(propulsion);
+        //this.setVueloProgramado(vueloProgramado);
     }
 
     @Override

@@ -1,11 +1,13 @@
 package com.company.Domain;
 
-
+import com.company.Model.*;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.company.Model.*;
 import java.io.File;
 import java.io.IOException;
 import java.util.*;
+import static com.company.App.Main.*;
+
 import static com.company.App.Main.*;
 
 public class CapaDatos {
@@ -15,6 +17,7 @@ public class CapaDatos {
     static public List<Gold> avionGoldList = new ArrayList<>();
     static public List<Silver> avionSilverList = new ArrayList<>();
     static public List<Bronze> avionBronzeList = new ArrayList<>();
+
 
     //-----------funciones para subir y bajar del archivo
 
@@ -111,6 +114,41 @@ public class CapaDatos {
         return null;
     }
 
+    public static void agregarVuelo(Vuelo vuelo){
+        vuelosList.add(vuelo);
+    }
+
+    //aviones gold
+    public static void uploadAvionesGold() {
+        try {
+            File file = new File(PATH_AVIONES_GOLD);
+            ObjectMapper mapper = new ObjectMapper();
+            mapper.writeValue(file, avionGoldList);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static List<Gold> downloadAvionesGold() {
+        try
+        {
+            File file = new File(PATH_AVIONES_GOLD);
+            ObjectMapper mapper = new ObjectMapper();
+            Gold[] avionesGold = mapper.readValue(file, Gold[].class);
+            List<Gold> listVuelos = new ArrayList();
+            for(Gold avion:avionesGold) {
+                listVuelos.add(avion);
+            }
+            CapaDatos.setAvionGoldList(listVuelos);
+            return listVuelos;
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     public static void agregarAvionGold(Gold goldAvion){
         avionGoldList.add(goldAvion);
     }
@@ -162,24 +200,33 @@ public class CapaDatos {
     }
 
     public static List<Bronze> downloadAvionesBronze() {
-        try {
+        try
+        {
             File file = new File(PATH_AVIONES_BRONZE);
             ObjectMapper mapper = new ObjectMapper();
             Bronze[] avionesBronze = mapper.readValue(file, Bronze[].class);
             List<Bronze> listVuelos = new ArrayList();
-            for (Bronze avion : avionesBronze) {
+            for(Bronze avion:avionesBronze) {
                 listVuelos.add(avion);
             }
             CapaDatos.setAvionBronzeList(listVuelos);
             return listVuelos;
-        } catch (IOException e) {
+        }
+        catch (IOException e)
+        {
             e.printStackTrace();
         }
         return null;
     }
 
+    public static void agregarAvionBronze(Bronze bronzeAvion){
+        avionBronzeList.add(bronzeAvion);
+    }
 
-//---------------GETTERS Y SETTERS
+
+
+
+    //---------------GETTERS Y SETTERS
 
     //g y s de silver
 
@@ -226,4 +273,17 @@ public class CapaDatos {
     }
 
     public static void setVuelosList(List<Vuelo> vuelosList) { CapaDatos.vuelosList = vuelosList; }
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

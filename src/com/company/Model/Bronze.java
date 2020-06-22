@@ -1,7 +1,11 @@
 package com.company.Model;
 import java.io.Serializable;
 
-public class Bronze extends Avion{
+import java.io.Serializable;
+
+public class Bronze extends Avion implements Serializable {
+
+    public Bronze(){}
 
     public Bronze(int capacidadCombustible, int costoKM, int capacidadPasajeros, int velMax, Propulsion propulsion) {
         this.setCapacidadCombustible(capacidadCombustible);
@@ -9,6 +13,7 @@ public class Bronze extends Avion{
         this.setCapacidadPasajeros(capacidadPasajeros);
         this.setVelMax(velMax);
         this.setPropulsion(propulsion);
+        //this.setVueloProgramado(vueloProgramado);
     }
 
     @Override
