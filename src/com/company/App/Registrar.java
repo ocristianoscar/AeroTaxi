@@ -8,10 +8,10 @@ import java.util.ArrayList;
 
 public class Registrar extends Model {
 
-    private ArrayList userAregistrar;
+    private ArrayList<String> userAregistrar;
 
     public Registrar() {
-        this.userAregistrar = new ArrayList();
+        this.userAregistrar = new ArrayList<>();
     }
 
     public ArrayList getUserAregistrar() { return userAregistrar; }
