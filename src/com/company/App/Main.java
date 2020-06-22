@@ -9,8 +9,11 @@ import com.company.Model.Propulsion;
 import com.company.Model.Silver;
 import com.company.View.MainMenuView;
 
+import java.io.File;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
 
@@ -29,10 +32,48 @@ public class Main {
         Gold gold2 = new Gold(6000,300,12,1150, Propulsion.REACCION,true,false);
         Gold gold3 = new Gold(6000,300,12,1150, Propulsion.REACCION,true,false);
 
-        
+        //funcion para crear archivos
+        setup();
+
         MainMenu mainMenu = new MainMenu(fechaActual);
         MainMenuController mainMenuController = new MainMenuController(mainMenu);
         MainMenuView mainMenuView = new MainMenuView(mainMenu, mainMenuController);
         mainMenuView.show();
+    }
+
+    private static void setup(){
+
+        //constantes de rutas de archivos
+        final String PATH_VUELOS = "vuelos.json";
+        final String PATH_AVIONES = "aviones.json";
+        final String PATH_USUARIOS = "usuarios.json";
+
+
+        List<String> paths = new ArrayList<>();
+
+        paths.add(PATH_AVIONES);
+        paths.add(PATH_USUARIOS);
+        paths.add(PATH_VUELOS);
+
+        for(String path : paths){
+            inicArchivo(path);
+        }
+
+    }
+
+    private static void inicArchivo(String path){
+
+        File file = new File(path);
+        boolean result;
+
+        try{
+            if(!file.exists()){
+                file.createNewFile();
+            }
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+
     }
 }
