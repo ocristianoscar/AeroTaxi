@@ -73,7 +73,7 @@ public class ContratarVueloController implements Controller {
             return true;
         }
 
-        else if(contratarVuelo.getAcompañantes()==null){
+        else if(contratarVuelo.getAcompañantes()==0){
             contratarVuelo.setAcompañantes(command);
             return true;
         }

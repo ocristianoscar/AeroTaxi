@@ -9,6 +9,7 @@ import com.company.Domain.CapaDatos;
 import com.company.Model.Avion;
 
 import java.time.DayOfWeek;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ContratarVueloView implements View {
@@ -34,15 +35,10 @@ public class ContratarVueloView implements View {
 
     public void show() {
         System.out.print(titulo + "\n\n");    //estos son todos los datos que se necesitan
-        int con = show(contratarVuelo.);
-        registro(reg);
+        int con = show(contratarVuelo.getVueloAregistrar());
+        contrato(con);
 
         //Preguntar si hay aviones disponibles, luego los que tienen mas capacidad de pasajeros que acompañantes. Luego mostrar los aviones disponibles.
-        //
-
-        System.out.println("\n\n" + op5);
-        ingresarAvion(acompañante);
-
         //en este punto debe seguirse una serie de pasos:
         //1 - elegir fecha
         //2 - se debe elegir origen
@@ -50,8 +46,15 @@ public class ContratarVueloView implements View {
         //4 - elegir si se viaja con acompañantes o no
         //5 - elegir aviones disponibles
         //6 - finalmente, mostrar y confirmar vuelo
-
     }
+
+    private int show(ArrayList<String> vueloAregistrar) {
+        for (String dato: vueloAregistrar) {
+            System.out.printf(" %s", dato);
+        }
+        return vueloAregistrar.size();
+    }
+
 
     public void contrato(int con){
         switch (con){
@@ -139,14 +142,14 @@ public class ContratarVueloView implements View {
 
     public void ingresarAvion(){
 
-        for (Avion avion : CapaDatos.getAvionList(String acompañante)) {
+     //   for (Avion avion : CapaDatos.getAvionList(String acompañante)) {
             // if(avion.getCapacidadPasajeros() >= acompañante){ //acompañante es un String
             // if(!avion.estaDisponible()){
-            System.out.println(avion.toString());
+         //   System.out.println(avion.toString());
             // elige la clase del vuelo
             //}
             //}
-        }
+       // }
     }
 
 

@@ -7,6 +7,7 @@ import com.company.Model.Vuelo;
 import com.company.Model.Avion;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ContratarVuelo extends Model{
@@ -16,6 +17,7 @@ public class ContratarVuelo extends Model{
     String ciudadDestino;
     int acompañantes;
     String avionDisponible;
+    ArrayList<String> vueloAregistrar;
     String[] arrCiudad = new String[4];
     // hacer arreglo de ciudades
 
@@ -25,6 +27,7 @@ public class ContratarVuelo extends Model{
         this.ciudadDestino=null;
         this.acompañantes=0;
         this.avionDisponible=null;
+        this.vueloAregistrar = new ArrayList<>();
     }
     public void setFechaElegida(LocalDate fechaElegida) {
         this.fechaElegida = fechaElegida;
@@ -51,10 +54,17 @@ public class ContratarVuelo extends Model{
         changed();
     }
 
+    public ArrayList<String> getVueloAregistrar() {
+        return vueloAregistrar;
+    }
+
+    public void setVueloAregistrar(ArrayList<String> vueloAregistrar) {
+        this.vueloAregistrar = vueloAregistrar;
+    }
+
     public String getAvionDisponible() {
         return avionDisponible;
     }
-
 
     public String getCiudadOrigen() {
         return ciudadOrigen;
@@ -68,7 +78,7 @@ public class ContratarVuelo extends Model{
         return fechaElegida;
     }
 
-    public String getAcompañantes() {
+    public int getAcompañantes() {
         return acompañantes;
     }
 
