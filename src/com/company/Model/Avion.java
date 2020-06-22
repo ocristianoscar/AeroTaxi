@@ -1,6 +1,8 @@
 package com.company.Model;
 
-public abstract class Avion {
+import java.io.Serializable;
+
+public abstract class Avion implements Serializable {
 
     private int capacidadCombustible;
     private int costoKM;
@@ -28,4 +30,15 @@ public abstract class Avion {
     public Propulsion getPropulsion() { return propulsion; }
 
     public void setPropulsion(Propulsion propulsion) { this.propulsion = propulsion; }
+
+    @Override
+    public String toString() {
+        return "Avion{" +
+                "capacidadCombustible=" + capacidadCombustible +
+                ", costoKM=" + costoKM +
+                ", capacidadPasajeros=" + capacidadPasajeros +
+                ", velMax=" + velMax +
+                ", propulsion=" + propulsion +
+                '}';
+    }
 }

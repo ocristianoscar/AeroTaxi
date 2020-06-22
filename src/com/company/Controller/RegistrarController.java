@@ -17,6 +17,7 @@ public class RegistrarController implements Controller {
     private String user;
     private String password;
     private ArrayList<String> usuarioAcrear = new ArrayList();
+
     public RegistrarController(Registrar registrar) {
         this.registrar = registrar;
     }
@@ -30,6 +31,8 @@ public class RegistrarController implements Controller {
                 this.edad = registrar.getUserAregistrar().get(3).toString();
                 this.user = registrar.getUserAregistrar().get(4).toString();
                 this.password = registrar.getUserAregistrar().get(5).toString();
+
+
 
                 //AGREGAR AL JSON EL USUARIO REGISTRADO Y LEER EN MainMenuView
                 return true;
