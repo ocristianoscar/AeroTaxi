@@ -10,11 +10,17 @@ import java.io.File;
 import java.io.IOException;
 import java.util.*;
 
+import static com.company.App.Main.PATH_AVIONES_GOLD;
+
 public class CapaDatos {
 
     static public List<Usuario> usersList;
     static public List<Vuelo> vuelosList;
-    static public List<Gold> avionList;     //le cambiamos el tipo para probar
+    static public List<Gold> avionGoldList = new ArrayList<>();     //le cambiamos el tipo para probar
+
+    public static void setAvionGoldList(List<Gold> avionGoldList) {
+        CapaDatos.avionGoldList = avionGoldList;
+    }
 
     public static List<Usuario> getUsersList() {
         return usersList;
@@ -24,8 +30,8 @@ public class CapaDatos {
         return vuelosList;
     }
 
-    public static List<Gold> getAvionList() {
-        return avionList;
+    public static List<Gold> getAvionGoldList() {
+        return avionGoldList;
     }
 
 
@@ -90,27 +96,27 @@ public class CapaDatos {
         return null;
     }
 
-    public static void uploadAviones(List<Avion> aviones) {
+    public static void uploadAvionesGold() {
         try {
-            File file = new File("aviones.json");
+            File file = new File(PATH_AVIONES_GOLD);
             ObjectMapper mapper = new ObjectMapper();
-            mapper.writeValue(file, aviones);
+            mapper.writeValue(file, avionGoldList);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    /*public static List<Avion> downloadAviones(File file) {
+    public static List<Gold> downloadAvionesGold() {
         try
         {
-            file = new File("aviones.json");
+            File file = new File(PATH_AVIONES_GOLD);
             ObjectMapper mapper = new ObjectMapper();
-            Avion[] aviones = mapper.readValue(file, Avion[].class);
-            List<Avion> listVuelos = new ArrayList();
-            for(Avion avion:aviones) {
+            Gold[] avionesGold = mapper.readValue(file, Gold[].class);
+            List<Gold> listVuelos = new ArrayList();
+            for(Gold avion:avionesGold) {
                 listVuelos.add(avion);
             }
-            CapaDatos.setAvionList(listVuelos);
+            CapaDatos.setAvionGoldList(listVuelos);
             return listVuelos;
         }
         catch (IOException e)
@@ -118,7 +124,7 @@ public class CapaDatos {
             e.printStackTrace();
         }
         return null;
-    }*/
+    }
 
     public static void  setUsersList(List<Usuario> usersList) { CapaDatos.usersList = usersList; }
 
@@ -127,8 +133,10 @@ public class CapaDatos {
     //public static void setAvionList(List<Avion> avionList) { CapaDatos.avionList = avionList; }
 
     public static void agregarAvionGold(Gold goldAvion){
-        System.out.println(goldAvion);
-        avionList.add(goldAvion);
+        //System.out.println(goldAvion);
+        avionGoldList.add(goldAvion);
     }
+
+
 
 }

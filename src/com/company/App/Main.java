@@ -17,7 +17,9 @@ public class Main {
 
     //constantes de rutas de archivos
     private static final String PATH_VUELOS = "vuelos.json";
-    private static final String PATH_AVIONES = "aviones.json";
+    public static final String PATH_AVIONES_GOLD = "avionesGold.json";
+    private static final String PATH_AVIONES_BRONZE = "avionesBronze.json";
+    private static final String PATH_AVIONES_SILVER = "avionesSilver.json";
     private static final String PATH_USUARIOS = "usuarios.json";
 
     public static void main(String[] args) {
@@ -57,14 +59,19 @@ public class Main {
         CapaDatos.agregarAvionGold(gold3);
         CapaDatos.agregarAvionGold(gold4);
 
-        for (Avion avion: CapaDatos.getAvionList() ) {
-            System.out.println(avion.toString());
-        }
+
 
         //funcion para crear archivos
         setup();
 
-        //CapaDatos.uploadVuelos(listaAviones);
+        CapaDatos.uploadAvionesGold();
+
+        List<Gold> listaAvionesGold = CapaDatos.downloadAvionesGold();
+
+
+        for (Gold avionGold: listaAvionesGold ) {
+            System.out.println(avionGold.toString());
+        }
 
         MainMenu mainMenu = new MainMenu(fechaActual);
         MainMenuController mainMenuController = new MainMenuController(mainMenu);
@@ -78,7 +85,9 @@ public class Main {
 
         List<String> paths = new ArrayList<>();
 
-        paths.add(PATH_AVIONES);
+        paths.add(PATH_AVIONES_GOLD);
+        paths.add(PATH_AVIONES_SILVER);
+        paths.add(PATH_AVIONES_BRONZE);
         paths.add(PATH_USUARIOS);
         paths.add(PATH_VUELOS);
 
