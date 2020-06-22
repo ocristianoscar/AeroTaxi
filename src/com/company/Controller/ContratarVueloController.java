@@ -23,34 +23,91 @@ public class ContratarVueloController implements Controller {
 
     //en este punto debe seguirse una serie de pasos:
     //1 - elegir fecha
-    //2 - si hay vuelos disponibles, se debe elegir origen
+    //2 - se debe elegir origen, no hay aviones?
     //3 - elegir destino
-    //4 - elegir aviones disponibles
-    //5 - elegir si se viaja con acompañantes o no
+    //4 - elegir si se viaja con acompañantes, excedistes?
+    //5 - elegir aviones disponibles
     //6 - finalmente, mostrar y confirmar vuelo
 
     public boolean execute(String command) {
-        LocalDate fechaElegida= LocalDate.parse(command, DateTimeFormatter.ofPattern("d/mm/yyyy"));
-        switch (command){
-            case "1":
-                //TODO:
+        LocalDate fechaElegida= LocalDate.parse(command, DateTimeFormatter.ofPattern("dd/mm/yyyy"));
+        if(contratarVuelo.getFechaElegida()==null) {
+            if (DateTimeFormatter.ofPattern("dd/mm/yyyy").equals(DateTimeFormatter.ofPattern(command))) {
+                contratarVuelo.setFechaElegida(fechaElegida);
                 return true;
-            case "2":
-                //TODO:
-                return true;
-            case "3":
-                //TODO:
-                return true;
-            case "4":
-                //TODO:
-                return true;
-            case "5":
-                //TODO:
-                return true;
-            default: break;
+            }
         }
+
+        else if(contratarVuelo.getCiudadOrigen()==null){
+            switch (command){
+                case "1": contratarVuelo.setCiudadOrigen("Bs_As");
+                break;
+
+                case "2": contratarVuelo.setCiudadOrigen("Cordoba");
+                break;
+
+                case "3": contratarVuelo.setCiudadOrigen("Montevideo");
+                break;
+
+                case "4": contratarVuelo.setCiudadOrigen("Santiago");
+                break;
+            }
+            return true;
+        }
+
+        else if(contratarVuelo.getCiudadDestino()==null){
+            switch (command){
+                case "1": contratarVuelo.setCiudadDestino("Bs_As");
+                    break;
+
+                case "2": contratarVuelo.setCiudadDestino("Cordoba");
+                    break;
+
+                case "3": contratarVuelo.setCiudadDestino("Montevideo");
+                    break;
+
+                case "4": contratarVuelo.setCiudadDestino("Santiago");
+                    break;
+            }
+            return true;
+        }
+
+        else if(contratarVuelo.getAcompañantes()==null){
+            contratarVuelo.setAcompañantes(command);
+            return true;
+        }
+
+        else if(contratarVuelo.getListaAvion()==null){
+            
+        }
+
+
+
         return false;
     }
+
+    /*public LocalDate ingresarFecha(){
+        LocalDate fecha;
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("\ningrese año (aaaa): ");     //toda esta parte es tentativa, podría hacerse
+        int año = sc.nextInt();                         //con solo un input con el formato adecuado
+        System.out.print("\ningrese mes (mm): ");
+        int mes = sc.nextInt();
+        System.out.print("\ningrese dia (dd) : ");
+        int dia = sc.nextInt();
+
+        //validar fecha
+
+        fecha = LocalDate.of(año, mes, dia);      //habria que poner una excepción si el formato no es
+        //el adecuado
+        return fecha;   //solo debe llegar aca cuando la fecha ingresada sea la correcta
+
+    }*/
+
+
+
     public void add(Vuelo vuelo) {
         this.vuelos.add(vuelo);
     }
@@ -63,7 +120,7 @@ public class ContratarVueloController implements Controller {
         double cant_pas = 1;// numero de viajeros
         double tarifa = 1;
 
-        // cant_pas = vuelo.calcularPasajeros();
+        cant_pas = vuelo.calcularPasajeros();
 
         tarifa = descubrirTarifa(vuelo);
 
