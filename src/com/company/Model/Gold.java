@@ -10,7 +10,6 @@ public class Gold extends Avion {
         this.setCapacidadPasajeros(capacidadPasajeros);
         this.setVelMax(velMax);
         this.setPropulsion(propulsion);
-        this.setVueloProgramado(vueloProgramado);
         this.wifi = wifi;
     }
 

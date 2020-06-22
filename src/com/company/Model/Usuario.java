@@ -1,6 +1,15 @@
 package com.company.Model;
 
+import com.company.App.MainMenu;
+import com.company.Controller.MainMenuController;
+import com.company.Domain.CapaDatos;
+import com.company.Domain.Fecha;
+import com.company.View.MainMenuView;
+
+import java.sql.SQLOutput;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Usuario {
     private String nombre;
@@ -8,6 +17,7 @@ public class Usuario {
     private String DNI;
     private String edad;
     private String user;
+    private String pass;
     private static Usuario miUsuario; //MI USUARIO ACTUAL
     private boolean esAdmin;
 
@@ -16,9 +26,23 @@ public class Usuario {
 
         try{
             if (miUsuario == null) {
-                ArrayList arrayUser  = new ArrayList<>();
-                //arrayUser = capaDatos.getJsonUser();
-                //miUsuario = new Usuario(arrayUser.get(0), arrayUser.get(1), arrayUser.get(2), arrayUser.get(3), arrayUser.get(4));
+                List<Usuario> arrayUser  = new ArrayList<>();
+                arrayUser = CapaDatos.getUsersList();
+                Usuario aux = null;
+                for (Usuario usuario: arrayUser
+                     ) {
+                    if (usuario.getUser() == user && usuario.getPass() == password){
+                        aux = usuario;
+                    }
+                }
+                if (aux != null){
+                    miUsuario = aux;
+                }else
+                    System.out.println("Un error ah ocurrido en la verificacion de la instancia.");
+                    MainMenu mainMenu = new MainMenu(Fecha.desde(LocalDate.now()));
+                    MainMenuController mainMenuController = new MainMenuController(mainMenu);
+                    MainMenuView mainMenuView = new MainMenuView(mainMenu, mainMenuController);
+                    mainMenuView.show();
             }
             return miUsuario;
         }catch (Exception e){
@@ -26,17 +50,17 @@ public class Usuario {
         }
     }
 
-    //CONSTRUCTOR PRIVADO
-    private Usuario(String nombre, String apellido, String DNI, String edad, String user){
+    //CONSTRUCTOR PUBLICO PARA PODER REGISTRAR
+    public Usuario(String nombre, String apellido, String DNI, String edad, String user, String pass){
         this.nombre = nombre;
         this.apellido = apellido;
         this.DNI = DNI;
         this.edad = edad;
         this.user = user;
+        this.pass = pass;
     }
 
-    //constructor publico
-    public Usuario(){}
+
 
     //GETTERS
 
@@ -50,8 +74,10 @@ public class Usuario {
 
     public String getEdad() { return edad; }
 
-    public String getUser() {
-        return user;
-    }
+    public String getUser() { return user; }
+
+    public String getPass() { return pass; }
+
+    public static Usuario getMiUsuario() { return miUsuario; }
 
 }

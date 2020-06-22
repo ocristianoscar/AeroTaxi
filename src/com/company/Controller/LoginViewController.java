@@ -1,8 +1,13 @@
 package com.company.Controller;
 
 import com.company.App.Login;
+import com.company.Domain.CapaDatos;
 import com.company.MVC.Controller;
+import com.company.Model.Usuario;
 import com.company.View.AdminView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class LoginViewController implements Controller {
 
@@ -21,11 +26,33 @@ public class LoginViewController implements Controller {
     public boolean execute(String command) {
         if (login.getUser().isEmpty()){
             String user = command;
-            login.setUser(user);
+            List<Usuario> arrayUser  = new ArrayList<>();
+            arrayUser = CapaDatos.getUsersList();
+            for (Usuario usuario: arrayUser
+            ) {
+                if (usuario.getUser() == user){
+                    login.setUser(user);
+                }
+            }
+            if (login.getUser().isEmpty()){
+                System.out.println("Usuario inexistente, ingrese nuevamente.");
+            }
+
 
         }else {
             String pass = command;
-            login.setPass(pass);
+            List<Usuario> arrayUser  = new ArrayList<>();
+            arrayUser = CapaDatos.getUsersList();
+            for (Usuario usuario: arrayUser
+            ) {
+                if (usuario.getPass() == pass){
+                    login.setPass(pass);
+                    Usuario.getUsuario(usuario.getUser(), usuario.getPass());
+                }
+            }
+            if (login.getPass().isEmpty()){
+                System.out.println("Contraseña incorrecta, ingrese nuevamente.");
+            }
 
         }
         return true;

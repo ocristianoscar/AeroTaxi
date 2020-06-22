@@ -52,10 +52,14 @@ public class LoginView implements View {
                     System.out.println(e.fillInStackTrace());
                 }
             }else {
-                Usuario.getUsuario(login.getUser(), login.getPass());
-
-                System.out.println("\nInicio de sesion completado\n");
-
+                Usuario aux = Usuario.getUsuario(login.getUser(), login.getPass());
+                if (aux != null)
+                    System.out.println("\nInicio de sesion completado\n");
+                else {
+                    System.out.println("\nAh ocurrido un error en el inicio de sesion.\n");
+                    login.setUser(null);
+                    login.setPass(null);
+                }
             }
         }
     }

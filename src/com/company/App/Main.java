@@ -1,6 +1,7 @@
 package com.company.App;
 
 import com.company.Controller.MainMenuController;
+import com.company.Domain.CapaDatos;
 import com.company.Domain.Fecha;
 import com.company.Model.Bronze;
 import com.company.Model.Gold;
@@ -28,6 +29,9 @@ public class Main {
         Gold gold2 = new Gold(6000,300,12,1150, Propulsion.REACCION,true,false);
         Gold gold3 = new Gold(6000,300,12,1150, Propulsion.REACCION,true,false);
 
+        CapaDatos.setAvionList(CapaDatos.downloadAviones());
+        CapaDatos.setVuelosList(CapaDatos.downloadVuelos());
+        CapaDatos.setUsersList(CapaDatos.downloadUsers());
         MainMenu mainMenu = new MainMenu(fechaActual);
         MainMenuController mainMenuController = new MainMenuController(mainMenu);
         MainMenuView mainMenuView = new MainMenuView(mainMenu, mainMenuController);

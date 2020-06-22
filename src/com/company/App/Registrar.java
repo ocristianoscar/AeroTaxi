@@ -16,8 +16,6 @@ public class Registrar extends Model {
 
     public ArrayList getUserAregistrar() { return userAregistrar; }
 
-    public void setUserAregistrar(ArrayList userAregistrar) { this.userAregistrar = userAregistrar; }
-
     public void agregarDato(String dato){
         userAregistrar.add(dato);
         changed();
