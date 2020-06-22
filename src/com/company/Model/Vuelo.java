@@ -16,6 +16,8 @@ public class Vuelo implements Serializable {
     private Ciudad ciudadDestino;
     //private float costo;
 
+    public Vuelo(){}
+
     public Vuelo(LocalDateTime dateTime, Usuario usuario, int acompañantes, Avion avion, Ciudad ciudadOrigen, Ciudad ciudadDestino) {
         this.usuario = usuario;
         this.dateTime = dateTime;

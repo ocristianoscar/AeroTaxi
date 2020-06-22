@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 public class Silver extends Avion implements Serializable {
 
+    public Silver(){}
 
     public Silver(int capacidadCombustible, int costoKM, int capacidadPasajeros, int velMax, Propulsion propulsion) {
         this.setCapacidadCombustible(capacidadCombustible);
