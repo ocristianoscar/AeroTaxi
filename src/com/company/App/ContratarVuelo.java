@@ -14,7 +14,7 @@ public class ContratarVuelo extends Model{
     LocalDate fechaElegida;
     String ciudadOrigen;
     String ciudadDestino;
-    String acompañantes;
+    int acompañantes;
     String avionDisponible;
     String[] arrCiudad = new String[4];
     // hacer arreglo de ciudades
@@ -23,7 +23,7 @@ public class ContratarVuelo extends Model{
         this.fechaElegida=null;
         this.ciudadOrigen=null;
         this.ciudadDestino=null;
-        this.acompañantes=null;
+        this.acompañantes=0;
         this.avionDisponible=null;
     }
     public void setFechaElegida(LocalDate fechaElegida) {
@@ -41,7 +41,7 @@ public class ContratarVuelo extends Model{
         changed();
     }
 
-    public void setAcompañantes(String acompañantes) {
+    public void setAcompañantes(int acompañantes) {
         this.acompañantes = acompañantes;
         changed();
     }

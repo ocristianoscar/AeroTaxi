@@ -1,4 +1,5 @@
 package com.company.Model;
+import java.io.Serializable;
 
 public class Gold extends Avion {
     private boolean wifi;

@@ -12,6 +12,8 @@ import java.time.DayOfWeek;
 import java.util.Scanner;
 
 public class ContratarVueloView implements View {
+
+    Scanner sc = new Scanner(System.in);
     private ContratarVuelo contratarVuelo;
     private ContratarVueloController contratarVueloController;
     private static String titulo= "CONTRATAR VUELO";
@@ -31,38 +33,15 @@ public class ContratarVueloView implements View {
     }
 
     public void show() {
-        Scanner sc = new Scanner(System.in);
-
-        System.out.print(titulo + "\n\n" + op1);
-        String fecha = sc.next();
-        ingresarFecha(fecha);
-
-        System.out.println("\n\n" + op2);
-        String origen = sc.next();
-        ingresarOrigen(origen);
-
-        System.out.println("\n\n" + op3);
-        String destino = sc.next();
-        ingresarDestino(destino);
-
-        System.out.println("\n\n" + op4);
-        String acompañante = sc.nextLine();
-        ingresarAcompañantes(acompañante);
+        System.out.print(titulo + "\n\n");    //estos son todos los datos que se necesitan
+        int con = show(contratarVuelo.);
+        registro(reg);
 
         //Preguntar si hay aviones disponibles, luego los que tienen mas capacidad de pasajeros que acompañantes. Luego mostrar los aviones disponibles.
         //
 
         System.out.println("\n\n" + op5);
-        for (Avion avion : CapaDatos.getAvionList()) {
-            // if(avion.getCapacidadPasajeros() >= acompañante){ //acompañante es un String
-            // if(!avion.estaDisponible()){
-            System.out.println(avion.toString());
-
-            //}
-            //}
-        }
-
-
+        ingresarAvion(acompañante);
 
         //en este punto debe seguirse una serie de pasos:
         //1 - elegir fecha
@@ -74,17 +53,55 @@ public class ContratarVueloView implements View {
 
     }
 
-    public void ingresarFecha(String fecha){
+    public void contrato(int con){
+        switch (con){
+            case 0:
+                ingresarFecha();
+                break;
+            case 1:
+                ingresarOrigen();
+                break;
+            case 2:
+                ingresarDestino();
+                break;
+            case 3:
+                ingresarAcompañantes();
+                break;
+            default: break;
+        }
+    }
+
+    public static boolean isInteger(String s) {
+        return isInteger(s,10);
+    }
+
+    public static boolean isInteger(String s, int radix) {
+        if(s.isEmpty()) return false;
+        for(int i = 0; i < s.length(); i++) {
+            if(i == 0 && s.charAt(i) == '-') {
+                if(s.length() == 1) return false;
+                else continue;
+            }
+            if(Character.digit(s.charAt(i),radix) < 0) return false;
+        }
+        return true;
+    }
+
+    public void ingresarFecha(){
+        System.out.print(titulo + "\n\n" + op1);
+        String fecha = sc.next();
         try{
             contratarVueloController.execute(fecha);
             System.out.println("Se ha ingresado la fecha.");
         }catch (Exception e){
             System.out.println("Has ingresado mal la fecha vuelve a intentarlo");
-            ingresarFecha(fecha);
+            ingresarFecha();
         }
     }
 
-    public void ingresarOrigen(String origen){
+    public void ingresarOrigen(){
+        System.out.println("\n\n" + op2);
+        String origen = sc.next();
         try{
             contratarVueloController.execute(origen);
             System.out.println("Se ha ingresado la ciudad de origen.");
@@ -94,7 +111,9 @@ public class ContratarVueloView implements View {
     }
 
 
-    public void ingresarDestino(String destino){
+    public void ingresarDestino(){
+        System.out.println("\n\n" + op3);
+        String destino = sc.next();
         try{
             contratarVueloController.execute(destino);
             System.out.println("Se ha ingresado la ciudad de destino.");
@@ -103,15 +122,31 @@ public class ContratarVueloView implements View {
         }
     }
 
-    public void ingresarAcompañantes(String acompañante){
-        try{
-            contratarVueloController.execute(acompañante);
-            System.out.println("Se han ingresado la cantidad de acompañantes.");
-        }catch (Exception e){
-            System.out.println(e.fillInStackTrace());
+    public void ingresarAcompañantes(){
+        System.out.println("\n\n" + op4);
+        String acompañante = sc.nextLine();
+        if(isInteger(acompañante)) {
+            try {
+                int acomp = Integer.parseInt(acompañante);
+                contratarVueloController.execute(acompañante);
+                System.out.println("Se han ingresado la cantidad de acompañantes.");
+            } catch (Exception e) {
+                System.out.println(e.fillInStackTrace());
+            }
         }
 
+    }
 
+    public void ingresarAvion(){
+
+        for (Avion avion : CapaDatos.getAvionList(String acompañante)) {
+            // if(avion.getCapacidadPasajeros() >= acompañante){ //acompañante es un String
+            // if(!avion.estaDisponible()){
+            System.out.println(avion.toString());
+            // elige la clase del vuelo
+            //}
+            //}
+        }
     }
 
 

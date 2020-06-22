@@ -1,4 +1,5 @@
 package com.company.Model;
+import java.io.Serializable;
 
 public class Bronze extends Avion{
 

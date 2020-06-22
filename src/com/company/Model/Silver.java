@@ -1,7 +1,7 @@
 package com.company.Model;
+import java.io.Serializable;
 
 public class Silver extends Avion{
-
 
     public Silver(int capacidadCombustible, int costoKM, int capacidadPasajeros, int velMax, Propulsion propulsion) {
         this.setCapacidadCombustible(capacidadCombustible);
