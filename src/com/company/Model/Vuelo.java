@@ -31,12 +31,9 @@ public class Vuelo {
 
     public String getUsuarioNombre() { return usuario.getNombre(); }
 
-    /*public List<String> getAcompañantesNombres() {
-        return acompañantes.stream()
-                .map(Acompañante::getNombre)
-                .collect(Collectors.toList());
-
-    }*/
+    public int getAcompañantes() {
+        return acompañantes;
+    }
 
     public Ciudad getCiudadOrigen() {
         return ciudadOrigen;
@@ -52,5 +49,10 @@ public class Vuelo {
 
     public boolean isOn(LocalDate date) {
         return dateTime.toLocalDate().equals(date);
+    }
+
+    public int calcularPasajeros(){
+        int pasaj = getAcompañantes() + 1; // La suma del ingreso de acompañantes que el usuario señalo y este mismo.
+        return pasaj;
     }
 }
