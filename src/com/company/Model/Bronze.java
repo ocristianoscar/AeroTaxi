@@ -1,6 +1,8 @@
 package com.company.Model;
 
-public class Bronze extends Avion{
+import java.io.Serializable;
+
+public class Bronze extends Avion implements Serializable {
 
     public Bronze(int capacidadCombustible, int costoKM, int capacidadPasajeros, int velMax, Propulsion propulsion) {
         this.setCapacidadCombustible(capacidadCombustible);

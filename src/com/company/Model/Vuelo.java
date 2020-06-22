@@ -1,12 +1,13 @@
 package com.company.Model;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Vuelo {
+public class Vuelo implements Serializable {
     private LocalDateTime dateTime;
     private Usuario usuario;
     private int acompañantes;

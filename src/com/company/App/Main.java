@@ -16,38 +16,36 @@ import java.util.List;
 public class Main {
 
     //constantes de rutas de archivos
-    private static final String PATH_VUELOS = "vuelos.json";
+    public static final String PATH_VUELOS = "vuelos.json";
     public static final String PATH_AVIONES_GOLD = "avionesGold.json";
-    private static final String PATH_AVIONES_BRONZE = "avionesBronze.json";
-    private static final String PATH_AVIONES_SILVER = "avionesSilver.json";
-    private static final String PATH_USUARIOS = "usuarios.json";
+    public static final String PATH_AVIONES_BRONZE = "avionesBronze.json";
+    public static final String PATH_AVIONES_SILVER = "avionesSilver.json";
+    public static final String PATH_USUARIOS = "usuarios.json";
 
     public static void main(String[] args) {
 
         Fecha fechaActual = Fecha.desde(LocalDate.now());
-
-        //List<Avion> listaAviones = new ArrayList<>();
-        //CapaDatos capaDatos = new CapaDatos();
 
         Bronze bronce1 = new Bronze(9500,175,19,1050,Propulsion.REACCION);//Dassault Falcon 2000LX
         Bronze bronce2 = new Bronze(9500,175,19,1050,Propulsion.REACCION);
         Bronze bronce3 = new Bronze(9500,175,19,1050,Propulsion.REACCION);
         Bronze bronce4 = new Bronze(9500,175,19,1050,Propulsion.REACCION);
 
-        /*CapaDatos.agregarAvion(bronce1);
-        CapaDatos.agregarAvion(bronce2);
-        CapaDatos.agregarAvion(bronce3);
-        CapaDatos.agregarAvion(bronce4);*/
+        CapaDatos.agregarAvionBronze(bronce1);
+        CapaDatos.agregarAvionBronze(bronce2);
+        CapaDatos.agregarAvionBronze(bronce3);
+        CapaDatos.agregarAvionBronze(bronce4);
+
 
         Silver silver1 = new Silver(20000,250,10,1110,Propulsion.HELICE);//Gulfstream 650ER
         Silver silver2 = new Silver(20000,250,10,1110,Propulsion.HELICE);
         Silver silver3 = new Silver(20000,250,10,1110,Propulsion.HELICE);
         Silver silver4 = new Silver(20000,250,10,1110,Propulsion.HELICE);
 
-        /*CapaDatos.agregarAvion(silver1);
-        CapaDatos.agregarAvion(silver2);
-        CapaDatos.agregarAvion(silver3);
-        CapaDatos.agregarAvion(silver4);*/
+        CapaDatos.agregarAvionSilver(silver1);
+        CapaDatos.agregarAvionSilver(silver2);
+        CapaDatos.agregarAvionSilver(silver3);
+        CapaDatos.agregarAvionSilver(silver4);
 
         Gold gold1 = new Gold(6000,300,12,1150, Propulsion.REACCION,true);//Cessna Citation X+
         Gold gold2 = new Gold(6000,300,12,1150, Propulsion.REACCION,true);
@@ -61,17 +59,19 @@ public class Main {
 
 
 
-        //funcion para crear archivos
+        //funcion para checkear/crear archivos
         setup();
 
         CapaDatos.uploadAvionesGold();
+        CapaDatos.uploadAvionesSilver();
+        CapaDatos.uploadAvionesBronze();
 
-        List<Gold> listaAvionesGold = CapaDatos.downloadAvionesGold();
+        /*List<Gold> listaAvionesGold = CapaDatos.downloadAvionesGold();
 
 
         for (Gold avionGold: listaAvionesGold ) {
             System.out.println(avionGold.toString());
-        }
+        }*/
 
         MainMenu mainMenu = new MainMenu(fechaActual);
         MainMenuController mainMenuController = new MainMenuController(mainMenu);
@@ -112,7 +112,4 @@ public class Main {
 
     }
 
-    /*private static void inicArchivoVuelos(List<Avion> listaAviones){
-        uploadVuelos(listaAviones);
-    }*/
 }
