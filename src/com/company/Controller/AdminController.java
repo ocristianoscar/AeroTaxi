@@ -2,6 +2,7 @@ package com.company.Controller;
 
 import com.company.App.Admin;
 
+import com.company.Domain.CapaDatos;
 import com.company.MVC.Controller;
 import com.company.Model.Usuario;
 import com.company.Model.Vuelo;
@@ -26,7 +27,7 @@ public class AdminController implements Controller {
                 //lista de todos los vuelos programados para una fecha dada
 
                 LocalDate fecha = ingresarFecha();      //la fecha en la que se deben listar los vuelos
-                List<Vuelo> vuelos = TraerListaDeVuelosEnArchivo();  //se trae la lista de vuelos guardada
+                List<Vuelo> vuelos = CapaDatos.downloadVuelos();  //se trae la lista de vuelos guardada
 
                 //aqui se devuelve una lista con todos los vuelos de la lista principal en la fecha seleccionada
                 //y se almacena en la lista vuelosEnFecha
@@ -46,7 +47,7 @@ public class AdminController implements Controller {
                 /*si se muestran todos los clientes ordenados por apellido habría que ordenarlos quizá
                 antes de subirlos a la lista. Si se los muestra ordenados por id, directamente se los lee
                 como están en la lista*/
-                List<Usuario> clientes = TraerListaDeClientesEnElArchivo();
+                List<Usuario> clientes = CapaDatos.downloadUsers();
 
                 //sort'em?
 
@@ -60,7 +61,7 @@ public class AdminController implements Controller {
     }
 
     public LocalDate ingresarFecha(){
-        LocalDate fecha;
+        LocalDate fecha = null;
 
         Scanner sc = new Scanner(System.in);
 
@@ -73,10 +74,14 @@ public class AdminController implements Controller {
 
         //validar fecha
 
-        fecha = LocalDate.of(año, mes, dia);      //habria que poner una excepción si el formato no es
-                                                    //el adecuado
+        try{
+            fecha = LocalDate.of(año, mes, dia);
+        }catch(Exception e){
+            e.getStackTrace();
+            System.out.print("Fecha incorrecta, vuelva a intentarlo\n");
+            ingresarFecha();
+        }
         return fecha;   //solo debe llegar aca cuando la fecha ingresada sea la correcta
-
     }
 
     //TODO: mostrar toda la info del vuelo
@@ -104,18 +109,6 @@ public class AdminController implements Controller {
                 mostrarVuelo(vuelo);
             }
         }
-    }
-
-    //TODO:esta es la lista de vuelos, que debería ser levantada del archivo de persistencia
-    private List<Vuelo> TraerListaDeVuelosEnArchivo(){
-        List<Vuelo> vuelosDelArchivo = new ArrayList();
-        return vuelosDelArchivo;
-    }
-
-    //TODO:esta es la lista de clientes, que debería ser levantada del archivo de persistencia
-    public List<Usuario> TraerListaDeClientesEnElArchivo(){
-        List<Usuario> usuariosEnElArchivo = new ArrayList();
-        return usuariosEnElArchivo;
     }
 
     private void mostrarDatosDeClientes(List<Usuario> clientes){
