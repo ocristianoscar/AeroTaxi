@@ -4,10 +4,13 @@ import com.company.App.Admin;
 import com.company.App.MainMenu;
 import com.company.App.Registrar;
 import com.company.Controller.AdminController;
+import com.company.Controller.MainMenuController;
 import com.company.Controller.RegistrarController;
+import com.company.Domain.Fecha;
 import com.company.MVC.View;
 
 import java.time.DayOfWeek;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -142,11 +145,19 @@ public class RegistrarView implements View {
     }
 
     public void registroCompletado(){
-        if (registrarController.execute("1"))
+        if (registrarController.execute("1")) {
             System.out.println("\nRegistro completado, lo regresaremos al menu principal\n");
-
-        else
+            MainMenu mainMenu = new MainMenu(Fecha.desde(LocalDate.now()));
+            MainMenuController mainMenuController = new MainMenuController(mainMenu);
+            MainMenuView mainMenuView = new MainMenuView(mainMenu, mainMenuController);
+            mainMenuView.show();
+        } else {
             System.out.println("\nHa ocurrido un error en el registro, lo devolveremos al menu principal.\n");
+            MainMenu mainMenu = new MainMenu(Fecha.desde(LocalDate.now()));
+            MainMenuController mainMenuController = new MainMenuController(mainMenu);
+            MainMenuView mainMenuView = new MainMenuView(mainMenu, mainMenuController);
+            mainMenuView.show();
+        }
     }
 
 

@@ -81,9 +81,8 @@ public class Main {
 
     private static void setup(){
 
-
-
         List<String> paths = new ArrayList<>();
+        int i = 0;
 
         paths.add(PATH_AVIONES_GOLD);
         paths.add(PATH_AVIONES_SILVER);
@@ -92,18 +91,42 @@ public class Main {
         paths.add(PATH_VUELOS);
 
         for(String path : paths){
-            inicArchivo(path);
+            inicArchivo(path, i);
+            i++;
         }
     }
 
-    private static void inicArchivo(String path){
+    private static void inicArchivo(String path, int index){
 
         File file = new File(path);
-        //boolean result;
 
         try{
             if(!file.exists()){
                 file.createNewFile();
+            }else {
+                switch (index){
+                    case 0:
+                        if (file.length() != 0)
+                        CapaDatos.downloadAvionesGold();
+                        break;
+                    case 1:
+                        if (file.length() != 0)
+                        CapaDatos.downloadAvionesSilver();
+                        break;
+                    case 2:
+                        if (file.length() != 0)
+                        CapaDatos.downloadAvionesBronze();
+                        break;
+                    case 3:
+                        if (file.length() != 0)
+                        CapaDatos.downloadUsers();
+                        break;
+                    case 4:
+                        if (file.length() != 0)
+                        CapaDatos.downloadVuelos();
+                        break;
+                    default:
+                }
             }
         }
         catch(Exception e){

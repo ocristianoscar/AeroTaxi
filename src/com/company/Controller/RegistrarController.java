@@ -2,10 +2,12 @@ package com.company.Controller;
 
 import com.company.App.CancelarVuelo;
 import com.company.App.Registrar;
+import com.company.Domain.CapaDatos;
 import com.company.MVC.Controller;
 import com.company.Model.Usuario;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class RegistrarController implements Controller {
 
@@ -23,27 +25,19 @@ public class RegistrarController implements Controller {
     }
 
     public boolean execute(String command) {
-        switch (command){
-            case "1":
+        if (command == "1"){
                 this.nombre = registrar.getUserAregistrar().get(0).toString();
                 this.apellido = registrar.getUserAregistrar().get(1).toString();
                 this.DNI = registrar.getUserAregistrar().get(2).toString();
                 this.edad = registrar.getUserAregistrar().get(3).toString();
                 this.user = registrar.getUserAregistrar().get(4).toString();
                 this.password = registrar.getUserAregistrar().get(5).toString();
-
-
-
-                //AGREGAR AL JSON EL USUARIO REGISTRADO Y LEER EN MainMenuView
+                CapaDatos.agregarUsuario(new Usuario(nombre, apellido, DNI, edad, user, password, false));
+                CapaDatos.uploadUsers();
                 return true;
-            case "2":       //no hay case 2
-                //TODO:
-                return true;
-            default: break;
-        }
+        }else
         return false;
     }
 
-    public ArrayList getUsuarioAcrear() { return usuarioAcrear; }
 
 }
