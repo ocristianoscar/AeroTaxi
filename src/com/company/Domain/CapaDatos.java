@@ -32,20 +32,23 @@ public class CapaDatos {
         }
     }
 
-    public static List<Usuario> downloadUsers() {
+    public static void downloadUsers() {
         try
         {
             File file = new File(PATH_USUARIOS);
             ObjectMapper mapper = new ObjectMapper();
             Usuario[] users = mapper.readValue(file, Usuario[].class);
             List<Usuario> listUsuario = new ArrayList();
+            for(Usuario user:users) {
+                listUsuario.add(user);
+            }
 
+            CapaDatos.setUsersList(listUsuario);
         }
         catch (IOException e)
         {
             e.printStackTrace();
         }
-        return null;
     }
 
     public static void agregarUsuario(Usuario user){
@@ -63,20 +66,23 @@ public class CapaDatos {
         }
     }
 
-    public static List<Vuelo> downloadVuelos() {
+    public static void downloadVuelos() {
         try
         {
             File file = new File(PATH_VUELOS);
             ObjectMapper mapper = new ObjectMapper();
             Vuelo[] vuelos = mapper.readValue(file, Vuelo[].class);
             List<Vuelo> listVuelos = new ArrayList();
+            for(Vuelo vuelo:vuelos) {
+                listVuelos.add(vuelo);
 
+            }
+            CapaDatos.setVuelosList(listVuelos);
         }
         catch (IOException e)
         {
             e.printStackTrace();
         }
-        return null;
     }
 
     public static void agregarVuelo(Vuelo vuelo){
@@ -94,27 +100,22 @@ public class CapaDatos {
         }
     }
 
-
-
-
-    public static List<Gold> downloadAvionesGold() {
+    public static void downloadAvionesGold() {
         try
         {
             File file = new File(PATH_AVIONES_GOLD);
             ObjectMapper mapper = new ObjectMapper();
             Gold[] avionesGold = mapper.readValue(file, Gold[].class);
-            List<Gold> listVuelos = new ArrayList();
+            List<Gold> golds = new ArrayList();
             for(Gold avion:avionesGold) {
-                listVuelos.add(avion);
+                golds.add(avion);
             }
-            CapaDatos.setAvionGoldList(listVuelos);
-            return listVuelos;
+            CapaDatos.setAvionGoldList(golds);
         }
         catch (IOException e)
         {
             e.printStackTrace();
         }
-        return null;
     }
 
     public static void agregarAvionGold(Gold goldAvion){
@@ -132,24 +133,22 @@ public class CapaDatos {
         }
     }
 
-    public static List<Silver> downloadAvionesSilver() {
+    public static void downloadAvionesSilver() {
         try
         {
             File file = new File(PATH_AVIONES_SILVER);
             ObjectMapper mapper = new ObjectMapper();
             Silver[] avionesSilver = mapper.readValue(file, Silver[].class);
-            List<Silver> listVuelos = new ArrayList();
+            List<Silver> silvers = new ArrayList();
             for(Silver avion:avionesSilver) {
-                listVuelos.add(avion);
+                silvers.add(avion);
             }
-            CapaDatos.setAvionSilverList(listVuelos);
-            return listVuelos;
+            CapaDatos.setAvionSilverList(silvers);
         }
         catch (IOException e)
         {
             e.printStackTrace();
         }
-        return null;
     }
 
     public static void agregarAvionSilver(Silver silverAvion){
@@ -167,24 +166,23 @@ public class CapaDatos {
         }
     }
 
-    public static List<Bronze> downloadAvionesBronze() {
+    public static void downloadAvionesBronze() {
         try
         {
             File file = new File(PATH_AVIONES_BRONZE);
             ObjectMapper mapper = new ObjectMapper();
             Bronze[] avionesBronze = mapper.readValue(file, Bronze[].class);
-            List<Bronze> listVuelos = new ArrayList();
+            List<Bronze> bronzes = new ArrayList();
             for(Bronze avion:avionesBronze) {
-                listVuelos.add(avion);
+                bronzes.add(avion);
+
             }
-            CapaDatos.setAvionBronzeList(listVuelos);
-            return listVuelos;
+            CapaDatos.setAvionBronzeList(bronzes);
         }
         catch (IOException e)
         {
             e.printStackTrace();
         }
-        return null;
     }
 
     public static void agregarAvionBronze(Bronze bronzeAvion){

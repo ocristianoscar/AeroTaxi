@@ -13,7 +13,6 @@ public class Bronze extends Avion implements Serializable {
         this.setCapacidadPasajeros(capacidadPasajeros);
         this.setVelMax(velMax);
         this.setPropulsion(propulsion);
-        //this.setVueloProgramado(vueloProgramado);
     }
 
     @Override
