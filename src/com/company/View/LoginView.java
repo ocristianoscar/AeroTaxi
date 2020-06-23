@@ -1,7 +1,9 @@
 package com.company.View;
 
 import com.company.App.Login;
+import com.company.App.User;
 import com.company.Controller.LoginViewController;
+import com.company.Controller.UserViewController;
 import com.company.MVC.View;
 import com.company.Model.Usuario;
 
@@ -27,9 +29,9 @@ public class LoginView implements View {
     public void modelChanged(){ show(); }
 
     public void show(){
-        String hasUser = show(login.getUser());
-        if(hasUser != null){
 
+        String hasUser = login.getUser();
+        if(!hasUser.isEmpty()){
             System.out.print(op2);
             Scanner sc = new Scanner(System.in);
             String pass = sc.nextLine();
@@ -44,24 +46,18 @@ public class LoginView implements View {
             if (login.getPass().isEmpty()){
                 System.out.print(titulo + "\n\n" + op1);
                 Scanner sc = new Scanner(System.in);
-                String user = sc.nextLine();
+                String pass = sc.nextLine();
                 try {
-                    loginViewController.execute(user);
-
+                    loginViewController.execute(pass);
                 } catch (Exception e) {
                     System.out.println(e.fillInStackTrace());
                 }
-            }else {
-                Usuario.getUsuario(login.getUser(), login.getPass());
-
-                System.out.println("\nInicio de sesion completado\n");
-
+                if (login.getPass().isEmpty()) {
+                    System.out.println("\nAh ocurrido un error en el inicio de sesion.\n");
+                    login.setUser(new String());
+                    login.setPass(new String());
+                }
             }
         }
-    }
-
-    public String show(String user){
-        System.out.printf("Usuario: %s", user);
-        return user;
     }
 }

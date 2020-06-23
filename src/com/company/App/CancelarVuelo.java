@@ -7,8 +7,8 @@ public class CancelarVuelo extends Model {
 
     private Vuelo vuelo;
 
-    public CancelarVuelo(Vuelo vuelo) {
-        this.vuelo = vuelo;
+    public CancelarVuelo() {
+        this.vuelo = null;
 
     }
 }

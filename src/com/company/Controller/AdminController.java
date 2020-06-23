@@ -87,7 +87,7 @@ public class AdminController implements Controller {
     //TODO: un par de cositas
     public void mostrarCliente(Usuario cliente){
         System.out.println("Apellido y nombre: " + cliente.getApellido() + ", " + cliente.getNombre());
-        System.out.println("DNI: " + cliente.getDNI());
+        System.out.println("DNI: " + cliente.getDni());
         System.out.println("Edad: " + cliente.getEdad());
         System.out.println("User: " + cliente.getUser());
         //pass?
