@@ -1,7 +1,9 @@
 package com.company.View;
 
 import com.company.App.Login;
+import com.company.App.User;
 import com.company.Controller.LoginViewController;
+import com.company.Controller.UserViewController;
 import com.company.MVC.View;
 import com.company.Model.Usuario;
 
@@ -44,19 +46,13 @@ public class LoginView implements View {
             if (login.getPass().isEmpty()){
                 System.out.print(titulo + "\n\n" + op1);
                 Scanner sc = new Scanner(System.in);
-                String user = sc.nextLine();
+                String pass = sc.nextLine();
                 try {
-
-                    loginViewController.execute(user);
-
+                    loginViewController.execute(pass);
                 } catch (Exception e) {
                     System.out.println(e.fillInStackTrace());
                 }
-            }else {
-                Usuario aux = Usuario.getUsuario(login.getUser(), login.getPass());
-                if (aux != null)
-                    System.out.println("\nInicio de sesion completado\n");
-                else {
+                if (login.getPass().isEmpty()) {
                     System.out.println("\nAh ocurrido un error en el inicio de sesion.\n");
                     login.setUser(new String());
                     login.setPass(new String());

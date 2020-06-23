@@ -31,7 +31,7 @@ public class Usuario implements Serializable {
                 Usuario aux = null;
                 for (Usuario usuario: arrayUser
                      ) {
-                    if (usuario.getUser() == user && usuario.getPass() == password){
+                    if (usuario.getUser().equals(user)&& usuario.getPass().equals(password)){
                         aux = usuario;
                     }
                 }
@@ -39,10 +39,7 @@ public class Usuario implements Serializable {
                     miUsuario = aux;
                 }else
                     System.out.println("Un error ah ocurrido en la verificacion de la instancia.");
-                    MainMenu mainMenu = new MainMenu(Fecha.desde(LocalDate.now()));
-                    MainMenuController mainMenuController = new MainMenuController(mainMenu);
-                    MainMenuView mainMenuView = new MainMenuView(mainMenu, mainMenuController);
-                    mainMenuView.show();
+
             }
             return miUsuario;
         }catch (Exception e){
