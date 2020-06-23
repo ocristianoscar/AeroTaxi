@@ -8,15 +8,13 @@ import java.util.ArrayList;
 
 public class Registrar extends Model {
 
-    private ArrayList userAregistrar;
+    private ArrayList<String> userAregistrar;
 
     public Registrar() {
-        this.userAregistrar = new ArrayList();
+        this.userAregistrar = new ArrayList<>();
     }
 
     public ArrayList getUserAregistrar() { return userAregistrar; }
-
-    public void setUserAregistrar(ArrayList userAregistrar) { this.userAregistrar = userAregistrar; }
 
     public void agregarDato(String dato){
         userAregistrar.add(dato);
