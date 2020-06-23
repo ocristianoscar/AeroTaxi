@@ -28,6 +28,10 @@ public class Vuelo implements Serializable {
         //this.costo = calcularCosto();
     }
 
+    public LocalDateTime getDateTime() {
+        return dateTime;
+    }
+
     public LocalTime getHora() {
         return dateTime.toLocalTime();
     }

@@ -88,11 +88,7 @@ public class AdminController implements Controller {
 
     //TODO: mostrar toda la info del vuelo
     public void mostrarVuelo(Vuelo vuelo){
-        System.out.print("Fecha y hora: " + vuelo.getDateTime());
-        System.out.print("Usuario: " + vuelo.getUsuarioNombre());
-        //TODO: System.out.print("Avion: " + vuelo.getAvion().toString());  //probablemente esto no ande bien
-        System.out.print("Ciudad de origen: " + vuelo.getCiudadOrigen());
-        System.out.print("Ciudad de destino: " + vuelo.getCiudadDestino());
+
     }
 
     //TODO: un par de cositas
