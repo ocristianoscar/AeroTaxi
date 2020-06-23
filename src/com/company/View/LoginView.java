@@ -27,9 +27,9 @@ public class LoginView implements View {
     public void modelChanged(){ show(); }
 
     public void show(){
-        String hasUser = show(login.getUser());
-        if(hasUser != null){
 
+        String hasUser = login.getUser();
+        if(!hasUser.isEmpty()){
             System.out.print(op2);
             Scanner sc = new Scanner(System.in);
             String pass = sc.nextLine();
@@ -46,6 +46,7 @@ public class LoginView implements View {
                 Scanner sc = new Scanner(System.in);
                 String user = sc.nextLine();
                 try {
+
                     loginViewController.execute(user);
 
                 } catch (Exception e) {
@@ -57,15 +58,10 @@ public class LoginView implements View {
                     System.out.println("\nInicio de sesion completado\n");
                 else {
                     System.out.println("\nAh ocurrido un error en el inicio de sesion.\n");
-                    login.setUser(null);
-                    login.setPass(null);
+                    login.setUser(new String());
+                    login.setPass(new String());
                 }
             }
         }
-    }
-
-    public String show(String user){
-        System.out.printf("Usuario: %s", user);
-        return user;
     }
 }

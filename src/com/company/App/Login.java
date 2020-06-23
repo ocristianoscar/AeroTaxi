@@ -8,13 +8,13 @@ public class Login extends Model {
     private String user;
     private String pass;
     public  Login(){
-        this.user = null;
-        this.pass = null;
+        this.user = new String();
+        this.pass = new String();
     }
 
     public String getUser() { return user; }
 
-    public void setUser(String user) { this.user = user;  changed();}
+    public void setUser(String user) { this.user = user; changed();}
 
     public String getPass() { return pass; }
 

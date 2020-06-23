@@ -5,6 +5,7 @@ import com.company.Domain.CapaDatos;
 import com.company.MVC.Controller;
 import com.company.Model.Usuario;
 import com.company.View.AdminView;
+import com.company.View.LoginView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,22 +25,25 @@ public class LoginViewController implements Controller {
     //si es admin lo manda al menu de admin
     @Override
     public boolean execute(String command) {
+        String user = command;
+
         if (login.getUser().isEmpty()){
-            String user = command;
             List<Usuario> arrayUser  = new ArrayList<>();
             arrayUser = CapaDatos.getUsersList();
             for (Usuario usuario: arrayUser
             ) {
+
                 if (usuario.getUser() == user){
-                    login.setUser(user);
+                    login.setUser(user);//Error extra;o en el set, user permanece vacio.
+
                 }
             }
             if (login.getUser().isEmpty()){
                 System.out.println("Usuario inexistente, ingrese nuevamente.");
+                login.changed();
             }
-
-
         }else {
+
             String pass = command;
             List<Usuario> arrayUser  = new ArrayList<>();
             arrayUser = CapaDatos.getUsersList();
@@ -53,7 +57,6 @@ public class LoginViewController implements Controller {
             if (login.getPass().isEmpty()){
                 System.out.println("Contraseña incorrecta, ingrese nuevamente.");
             }
-
         }
         return true;
     }

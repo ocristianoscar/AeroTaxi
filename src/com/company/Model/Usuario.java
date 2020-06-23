@@ -7,7 +7,6 @@ import com.company.Domain.CapaDatos;
 import com.company.Domain.Fecha;
 import com.company.View.MainMenuView;
 
-import java.sql.SQLOutput;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +14,7 @@ import java.util.List;
 public class Usuario implements Serializable {
     private String nombre;
     private String apellido;
-    private String DNI;
+    private String dni;
     private String edad;
     private String user;
     private String pass;
@@ -52,13 +51,16 @@ public class Usuario implements Serializable {
     }
 
     //CONSTRUCTOR PUBLICO PARA PODER REGISTRAR
-    public Usuario(String nombre, String apellido, String DNI, String edad, String user, String pass){
+    public Usuario(){}
+
+    public Usuario(String nombre, String apellido, String dni, String edad, String user, String pass, boolean esAdmin){
         this.nombre = nombre;
         this.apellido = apellido;
-        this.DNI = DNI;
+        this.dni = dni;
         this.edad = edad;
         this.user = user;
         this.pass = pass;
+        this.esAdmin = esAdmin;
     }
 
 
@@ -71,7 +73,7 @@ public class Usuario implements Serializable {
 
     public String getApellido() { return apellido; }
 
-    public String getDNI() { return DNI; }
+    public String getDni() { return dni; }
 
     public String getEdad() { return edad; }
 

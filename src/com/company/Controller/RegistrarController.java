@@ -32,8 +32,8 @@ public class RegistrarController implements Controller {
                 this.edad = registrar.getUserAregistrar().get(3).toString();
                 this.user = registrar.getUserAregistrar().get(4).toString();
                 this.password = registrar.getUserAregistrar().get(5).toString();
-                 List<Usuario> aux = CapaDatos.registrarUsuario(new Usuario(nombre, apellido, DNI, edad, user, password));
-                CapaDatos.uploadUsers(aux);
+                CapaDatos.agregarUsuario(new Usuario(nombre, apellido, DNI, edad, user, password, false));
+                CapaDatos.uploadUsers();
                 return true;
         }else
         return false;
