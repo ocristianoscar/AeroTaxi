@@ -94,40 +94,8 @@ public class CapaDatos {
         }
     }
 
-    public static List<Gold> downloadAvionesGold() {
-        try
-        {
-            File file = new File(PATH_AVIONES_GOLD);
-            ObjectMapper mapper = new ObjectMapper();
-            Gold[] avionesGold = mapper.readValue(file, Gold[].class);
-            List<Gold> listVuelos = new ArrayList();
-            for(Gold avion:avionesGold) {
-                listVuelos.add(avion);
-            }
-            CapaDatos.setAvionGoldList(listVuelos);
-            return listVuelos;
-        }
-        catch (IOException e)
-        {
-            e.printStackTrace();
-        }
-        return null;
-    }
 
-    public static void agregarVuelo(Vuelo vuelo){
-        vuelosList.add(vuelo);
-    }
 
-    //aviones gold
-    public static void uploadAvionesGold() {
-        try {
-            File file = new File(PATH_AVIONES_GOLD);
-            ObjectMapper mapper = new ObjectMapper();
-            mapper.writeValue(file, avionGoldList);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
     public static List<Gold> downloadAvionesGold() {
         try

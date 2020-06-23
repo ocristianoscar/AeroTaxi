@@ -18,8 +18,7 @@ public class ContratarVuelo extends Model{
     int acompañantes;
     String avionDisponible;
     ArrayList<String> vueloAregistrar;
-    String[] arrCiudad = new String[4];
-    // hacer arreglo de ciudades
+    String[] arrCiudad = {"Bs_As","Cordoba","Montevideo","Santiago"};//cada ciudad tiene 1 avion de cada clase para usarse cada dia.
 
     public ContratarVuelo() {
         this.fechaElegida=null;

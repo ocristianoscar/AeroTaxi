@@ -70,6 +70,9 @@ public class ContratarVueloView implements View {
             case 3:
                 ingresarAcompañantes();
                 break;
+            case 4:
+                ingresarAvion();
+                break;
             default: break;
         }
     }
@@ -130,7 +133,6 @@ public class ContratarVueloView implements View {
         String acompañante = sc.nextLine();
         if(isInteger(acompañante)) {
             try {
-                int acomp = Integer.parseInt(acompañante);
                 contratarVueloController.execute(acompañante);
                 System.out.println("Se han ingresado la cantidad de acompañantes.");
             } catch (Exception e) {
@@ -141,10 +143,9 @@ public class ContratarVueloView implements View {
     }
 
     public void ingresarAvion(){
-
      //   for (Avion avion : CapaDatos.getAvionList(String acompañante)) {
             // if(avion.getCapacidadPasajeros() >= acompañante){ //acompañante es un String
-            // if(!avion.estaDisponible()){
+            // if(!avion.isOn()){
          //   System.out.println(avion.toString());
             // elige la clase del vuelo
             //}

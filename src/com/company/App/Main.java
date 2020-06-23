@@ -24,13 +24,6 @@ public class Main {
     public static final String PATH_AVIONES_SILVER = "avionesSilver.json";
     public static final String PATH_USUARIOS = "usuarios.json";
 
-    //constantes de rutas de archivos
-    public static final String PATH_VUELOS = "vuelos.json";
-    public static final String PATH_AVIONES_GOLD = "avionesGold.json";
-    public static final String PATH_AVIONES_BRONZE = "avionesBronze.json";
-    public static final String PATH_AVIONES_SILVER = "avionesSilver.json";
-    public static final String PATH_USUARIOS = "usuarios.json";
-
     public static void main(String[] args) {
 
         Fecha fechaActual = Fecha.desde(LocalDate.now());

@@ -21,10 +21,6 @@ public class Gold extends Avion implements Serializable {
 
     @Override
     public String toString() {
-        return "Gold{" +
-                "wifi=" + wifi +
-                ", silver='" + silver + '\'' +
-                ", propulsion=" + propulsion +
-                '}';
+        return super.toString() + "Oro";
     }
 }
