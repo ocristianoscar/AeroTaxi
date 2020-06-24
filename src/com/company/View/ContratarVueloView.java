@@ -101,6 +101,7 @@ public class ContratarVueloView implements View {
             System.out.println("Se ha ingresado la fecha.");
         }catch (Exception e){
             System.out.println("Has ingresado mal la fecha vuelve a intentarlo");
+            contratarVuelo.setFechaElegida(null);
             ingresarFecha();
         }
     }
@@ -125,6 +126,11 @@ public class ContratarVueloView implements View {
             System.out.println("Se ha ingresado la ciudad de destino.");
         }catch (Exception e){
             System.out.println(e.fillInStackTrace());
+        }
+        if(contratarVuelo.getCiudadOrigen().equals(contratarVuelo.getCiudadDestino())){
+            contratarVuelo.setCiudadDestino(null);
+            System.out.println("Pero ingresastes la misma ciudad que el origen");
+            ingresarDestino();
         }
     }
 
