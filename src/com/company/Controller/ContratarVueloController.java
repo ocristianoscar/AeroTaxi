@@ -31,9 +31,9 @@ public class ContratarVueloController implements Controller {
     //6 - finalmente, mostrar y confirmar vuelo
 
     public boolean execute(String command) {
-        LocalDate fechaElegida= LocalDate.parse(command, DateTimeFormatter.ofPattern("dd/mm/yyyy"));
+        LocalDate fechaElegida = LocalDate.parse(command, DateTimeFormatter.ofPattern("mm/dd/yyyy"));
         if(contratarVuelo.getFechaElegida()==null) {
-            if (DateTimeFormatter.ofPattern("dd/mm/yyyy").equals(DateTimeFormatter.ofPattern(command))) {
+            if (DateTimeFormatter.ofPattern("mm/dd/yyyy").equals(DateTimeFormatter.ofPattern(command))) {
                 contratarVuelo.setFechaElegida(fechaElegida);
                 return true;
             }

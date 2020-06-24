@@ -27,7 +27,7 @@ public class AdminController implements Controller {
                 //lista de todos los vuelos programados para una fecha dada
 
                 LocalDate fecha = ingresarFecha();      //la fecha en la que se deben listar los vuelos
-                List<Vuelo> vuelos = CapaDatos.downloadVuelos();  //se trae la lista de vuelos guardada
+                List<Vuelo> vuelos = CapaDatos.getVuelosList(); //se trae la lista de vuelos guardada
 
                 //aqui se devuelve una lista con todos los vuelos de la lista principal en la fecha seleccionada
                 //y se almacena en la lista vuelosEnFecha
@@ -47,7 +47,7 @@ public class AdminController implements Controller {
                 /*si se muestran todos los clientes ordenados por apellido habría que ordenarlos quizá
                 antes de subirlos a la lista. Si se los muestra ordenados por id, directamente se los lee
                 como están en la lista*/
-                List<Usuario> clientes = CapaDatos.downloadUsers();
+                List<Usuario> clientes = CapaDatos.getUsersList();
 
                 //sort'em?
 

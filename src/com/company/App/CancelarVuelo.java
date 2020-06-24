@@ -10,7 +10,7 @@ public class CancelarVuelo extends Model {
 
     ArrayList<String> vuelo;
 
-    public CancelarVuelo(ArrayList<String> vuelo) {
+    public CancelarVuelo() {
         this.vuelo = new ArrayList<>();
     }
 
