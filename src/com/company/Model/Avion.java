@@ -1,4 +1,5 @@
 package com.company.Model;
+import java.io.Serializable;
 
 import java.io.Serializable;
 
@@ -29,7 +30,6 @@ public abstract class Avion implements Serializable {
 
     public int getVelMax() { return velMax; }
 
-
     public void setVelMax(int velMax) { this.velMax = velMax; }
 
     public Propulsion getPropulsion() { return propulsion; }
@@ -38,12 +38,6 @@ public abstract class Avion implements Serializable {
 
     @Override
     public String toString() {
-        return "Avion{" +
-                "capacidadCombustible=" + capacidadCombustible +
-                ", costoKM=" + costoKM +
-                ", capacidadPasajeros=" + capacidadPasajeros +
-                ", velMax=" + velMax +
-                ", propulsion=" + propulsion +
-                '}';
+        return "Este avion tiene una capacidad de " + capacidadPasajeros + ", una velocidad maxima de " + velMax + "km por hora y una cantidad de " + capacidadCombustible + " combustible. Su categoria es: ";
     }
 }

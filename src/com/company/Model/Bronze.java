@@ -1,4 +1,5 @@
 package com.company.Model;
+import java.io.Serializable;
 
 import java.io.Serializable;
 
@@ -14,4 +15,10 @@ public class Bronze extends Avion implements Serializable {
         this.setPropulsion(propulsion);
         this.type = "Bronze";
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + "Bronce";
+    }
+
 }

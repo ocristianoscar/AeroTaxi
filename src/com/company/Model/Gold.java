@@ -1,4 +1,5 @@
 package com.company.Model;
+import java.io.Serializable;
 
 import java.io.Serializable;
 
@@ -20,10 +21,6 @@ public class Gold extends Avion implements Serializable {
 
     @Override
     public String toString() {
-        return "Gold{" +
-                "wifi=" + wifi +
-                 '\'' +
-                ", propulsion=" + propulsion +
-                '}';
+        return super.toString() + "Oro";
     }
 }
