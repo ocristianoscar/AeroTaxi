@@ -9,6 +9,11 @@ public abstract class Avion implements Serializable {
     private int capacidadPasajeros;
     private int velMax;
     Propulsion propulsion;
+    protected String type;
+
+    public String getType() {
+        return type;
+    }
 
     public int getCapacidadCombustible() { return capacidadCombustible; }
 
