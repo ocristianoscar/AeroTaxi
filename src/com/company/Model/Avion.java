@@ -1,13 +1,20 @@
 package com.company.Model;
+import java.io.Serializable;
 
-public abstract class Avion {
+import java.io.Serializable;
+
+public abstract class Avion implements Serializable {
 
     private int capacidadCombustible;
     private int costoKM;
     private int capacidadPasajeros;
     private int velMax;
     Propulsion propulsion;
-    private boolean vueloProgramado;
+    protected String type;
+
+    public String getType() {
+        return type;
+    }
 
     public int getCapacidadCombustible() { return capacidadCombustible; }
 
@@ -29,7 +36,8 @@ public abstract class Avion {
 
     public void setPropulsion(Propulsion propulsion) { this.propulsion = propulsion; }
 
-    public boolean isVueloProgramado() { return vueloProgramado; }
-
-    public void setVueloProgramado(boolean vueloProgramado) { this.vueloProgramado = vueloProgramado; }
+    @Override
+    public String toString() {
+        return "Este avion tiene una capacidad de " + capacidadPasajeros + ", una velocidad maxima de " + velMax + "km por hora y una cantidad de " + capacidadCombustible + " combustible. Su categoria es: ";
+    }
 }

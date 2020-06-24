@@ -1,28 +1,39 @@
 package com.company.Domain;
 
+import java.time.LocalDate;
+
 public class Fecha {
 
-    private final java.time.LocalDate inicio;
+    private final LocalDate fecha;
 
-    private Fecha(java.time.LocalDate inicio) {
-        this.inicio = inicio;
+    public Fecha(){
+        fecha = null;
     }
 
-    public static Fecha desde(java.time.LocalDate start) {
+    private Fecha(LocalDate inicio) {
+        this.fecha = inicio;
+    }
+
+    public static Fecha desde(LocalDate start) {
         return new Fecha(start);
     }
 
-    public java.time.LocalDate getInicio() {
-        return inicio;
+    public LocalDate getFecha() {
+        return fecha;
     }
 
-    public java.time.LocalDate getEnd() {
-        return inicio.plusDays(6);
+    public LocalDate getEnd() {
+        return fecha.plusDays(6);
     }
 
-    public Fecha siguenteDia() { return new Fecha(inicio.plusDays(1)); }
+    public Fecha siguenteDia() { return new Fecha(fecha.plusDays(1)); }
 
-    public Fecha anteriorDia() { return new Fecha(inicio.minusDays(1)); }
+    public Fecha anteriorDia() { return new Fecha(fecha.minusDays(1)); }
+
+    public boolean validarFecha(String año, String mes, String dia){
+        //TODO validar la fecha
+        return true;
+    }
 
 
 }

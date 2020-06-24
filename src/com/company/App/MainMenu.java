@@ -9,6 +9,7 @@ public class MainMenu extends Model {
 
     public MainMenu(Fecha fechaActual) {
         this.fechaActual = fechaActual;
-
     }
+
+    public Fecha getFechaActual() { return fechaActual; }
 }
